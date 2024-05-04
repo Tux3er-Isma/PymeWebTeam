@@ -1,0 +1,268 @@
+---
+import Card from "./Card.astro"
+---
+
+<main class="main">
+    <section class="main__section main__section--1">
+        <div class="main__section__divider">
+            <Card title="Lorem Ipsum" subtitle="hola como estas me llamo osvaldo"></Card>
+            <Card title="Lorem Ipsum" subtitle="hola como estas me llamo osvaldo"></Card>
+        </div>
+        <div class="main__section__divider">
+            <Card title="Lorem Ipsum" subtitle="hola como estas me llamo osvaldo"></Card>
+            <Card title="Lorem Ipsum" subtitle="hola como estas me llamo osvaldo"></Card>
+        </div>
+    </section>
+    <section class="main__chat-container"></section>
+    <section class="main__section main__section--3">
+        <div class="main__section__inpt-container">
+            <input type="text" placeholder="Pregunta algo..." class="main__section__inpt-container__inpt">
+            <div class="main__section__inpt-container__icon-container">
+                <i class="fa-solid fa-paper-plane main__section__inpt-container__icon-container__icon"></i>
+            </div>
+        </div>
+    </section>
+</main>
+
+<style lang="scss">
+    .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        justify-content: flex-end;
+        height: 75vh;
+
+        &__section{
+            gap: 10px;
+            display: flex;
+
+            &__divider{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            &__inpt-container{
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                &__inpt{
+                    background-color: transparent;
+                    border: 1.4px solid #50545d;
+                    width: 60vw;
+                    border-radius: 23px;
+                    padding: 20px;
+                    outline: none;
+                    font-size: 18px;
+                    color: #7d7d7d;
+
+                    &::placeholder{
+                        font-size: 18px;
+                        color: #7d7d7d;
+                    }
+                }
+
+                &__icon-container{
+                    position: absolute;
+                    right: 20px;
+                    background-color: #50545d;
+                    width: 51px;
+                    height: 51px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 13px;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+
+                    &__icon{
+                        transition: all .5s;
+                        color: #7d7d7d;
+                        font-size: 25px;
+                    }
+                }
+            }
+
+            &--3{
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                position: fixed;
+                bottom: 0px;
+                border-top: .5px solid #333;
+                padding: 20px;
+                box-shadow: 0px 0px 10px 0px #000;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 480px){
+        .main{
+
+            &__section{
+                flex-direction: column;
+
+                &__inpt-container{
+
+                    &__inpt{
+                        width: 100%
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+<script is:inline>
+    const $inpt = document.querySelector('.main__section__inpt-container__inpt');
+    const $icon = document.querySelector('.main__section__inpt-container__icon-container__icon');
+    const $section1 = document.querySelector('.main__section--1');
+
+    const chatMessagesArr = ["Hola"];
+    const userMessagesArr = [];
+
+    $inpt.addEventListener('keyup', () =>{
+        if ($inpt.value != ''){
+            $icon.style.color = '#fff';
+            $icon.addEventListener('click', () =>{
+                $section1.style.display = 'none';
+            })
+        } else {
+            $icon.style.color = '#7d7d7d';
+        }
+    })
+
+    let partA1 = "sk-proj-hSaYZUjqOdhpQ89uf2J0T3B"
+    let partA2 = "lbkFJaf9mrjYtXKXPWe"
+    let partA3 = "I5APDk";
+
+    key = "sk-proj-nkP3pPRL5OmqSSQ45nt6T3BlbkFJnRE6vGjl5KDAQgmLUtyp"
+
+    async function getBotMessage(){
+    const options = {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${key}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [{role: "user", content: ` 
+
+            Eres un asistente de IA de una empresa llamada Pyme Web. Todas tus respuestas deben estar en formato MarkDown
+
+            Somos una empresa llamada Pyme Web Team (recuerda que el prompt tiene que estar escrito en imperativo)
+
+            Quiénes somos
+            Hola, somos Isma y Xavi (Pyme Web Team), dos emprendedores con una visión clara: ayudar a las pequeñas y medianas empresas a tener una sólida presencia en internet a través de páginas web efectivas. Nuestra juventud es nuestra ventaja, ya que combinamos pasión, creatividad y conocimiento técnico con un compromiso inquebrantable hacia la satisfacción del cliente.
+            
+            Queremos ser tu aliado tecnológico en este emocionante viaje hacia el éxito en línea. Confía en nosotros para crear una presencia web que refleje la esencia y el valor de tu negocio. Descubre más sobre nosotros 
+            
+            
+            Qué hacemos
+            Nos especializamos en:
+             Diseño y desarrollo (Páginas web)
+             Creación y edición de videos para redes sociales
+             Mantenimiento y actualización continua
+             Copy Writing
+            
+            Cómo trabajamos
+            Seguimos unas pautas y pasos para proporcionar el mejor servicio:
+            
+            1: Consulta y planificacion con el cliente
+            2: Diseño creativo y propuesta
+            3:Desarrollo tecnico
+            4:Pruebas y ajustes
+            5: Entrega y lanzamiento
+            6: Mantenimiento y actualizaciones
+            
+            
+            Por qué con nosotros
+            Te ofrecemos:
+            
+            - Diseños personalizados y profesionales
+            - Especializados en paginas web vendedoras
+            - Interfaz intuitiva
+            - Estrategias SEO para ganar visibilidad
+               online
+            - Soporte continuo y actualizaciones
+            - Precios competitivos
+            - Diseños adaptados a cualquier
+               dispositivo
+            - Uso de la última tecnologia de Inteligencia
+               Artificial
+            
+            
+            (Esta parte explica un poco quienes somos más allá de lo que he puesto antes)
+            
+            En un mundo cada vez más conectado, la presencia en línea, es fundamental para el éxito de cualquier empresa. Nos hemos embarcado en la misión de brindar a las PYMES las herramientas que necesitan para competir en este entorno digital en constante evolución.
+            
+            A pesar de nuestra juventud, -quizá te sorprenda cuando nos conozcas personalmente- no subestimes nuestra experiencia y conocimiento. Hemos crecido con la tecnología y comprendemos sus matices como pocos.
+            
+            Hemos trabajado incansablemente para perfeccionar nuestras habilidades y conocimientos en el diseño y desarrollo de páginas web. Lo más importante es que amamos lo que hacemos, y esto se refleja en la calidad de nuestro trabajo. Estamos comprometidos con la excelencia y nos enorgullece ofrecer soluciones web que no solo son hermosas desde un punto de vista estético, sino que también están diseñadas para impulsar el éxito comercial de nuestros clientes.
+            
+            Sólo queda decir que estamos listos para ser tu aliado tecnológico en el viaje hacia el éxito en línea. Confía en nosotros para crear una presencia web que refleje la esencia y el valor de tu negocio.
+            
+            ¡Únete a nosotros en este emocionante viaje! ¿El primer paso? ¡Contacta con nosotros!
+            
+            Contactanos
+            para contactarnos o conceder una entrevista pueden acceder al formulario que se encuentra al final de la pagina web,
+            
+            Descargar presentacion
+            Para descargar la presentacion/portfolio los usuarios pueden descargarlo apretando el boton de "Descargar presentacion" que se encuentra en la web
+            
+            dominamos los lenguajes de programacion: HTML, CSS, JS, SASS, ASTRO (js)
+            
+            No completes las palabras solo da tu respuesta recuerda que eres un asistente. Tu función es responder al cliente con información proporcionada anteriormente
+
+            Cuando lo creas necesario crea un formato de lista o esquema. Que quede más dinámico el resultado.
+
+           Reponde a esta oracion: ${$inpt.value}`}],
+            max_tokens: 500,
+            temperature: 0.5
+        })
+    }
+
+    try {
+        const response = await fetch('https://api.openai.com/v1/chat/completions', options)
+        const data = await response.json();
+        console.log(data);
+        // setTimeout(() =>{
+        //     chatInpt.removeAttribute('readonly', false);
+        //     chatInpt.style.cursor = 'text';
+        // }, 500)
+        // chatInpt.style.cursor = 'not-allowed';
+        // loaderArr[loaderArr.length - 1].style.display = 'none';
+        // txt2Arr[txt2Arr.length - 1].style.display = 'block';
+        // let lettersTxt2Arr;
+        //     txt2Arr[txt2Arr.length - 1].innerHTML = data.choices[0].message.content;
+        //     let convertedTxt = converter.makeHtml(txt2Arr[txt2Arr.length - 1].innerHTML);
+        //     txt2Arr[txt2Arr.length - 1].innerHTML = convertedTxt;
+        //     lettersTxt2Arr = Array.from(txt2Arr[txt2Arr.length - 1].innerHTML);
+        // typingLength = lettersTxt2Arr.length;
+
+
+        // let currentCharIndex = 0;
+
+        // function typePhrase() {
+        //     if (currentCharIndex <= lettersTxt2Arr.length) {
+        //             txt2Arr[txt2Arr.length - 1].innerHTML = convertedTxt.substr(0, currentCharIndex);
+        //         currentCharIndex++;
+        //         setTimeout(typePhrase, 1); // Cambia el tiempo de escritura según tus preferencias
+        //     }
+        // }
+
+        // // Iniciar el efecto al cargar la página
+        // typePhrase();
+
+    }
+
+    catch (err){
+        console.error(err)
+    }
+    }
+</script>

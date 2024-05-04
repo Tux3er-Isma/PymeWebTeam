@@ -1,0 +1,28 @@
+---
+import Logo from "../../../assets/Logo.png";
+---
+
+<header class="header">
+    <img src={Logo.src} alt="PymeWebTeam" class="header__logo" transition:name="logo">
+    <h2 class="header__title">¿Cómo te podemos ayudar?</h2>
+</header>
+
+<style lang="scss">
+    .header{
+        display: flex;
+        width: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 30px;
+
+        &__logo{
+            width: 82px;
+        }
+
+        &__title{
+            font-size: 16px;
+        }
+    }
+</style>
