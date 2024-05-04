@@ -1,0 +1,97 @@
+---
+import Mockup2 from "../../../assets/Mockup-2.png";
+import Rectangle1 from "../../../assets/Rectangle-1.png";
+---
+
+<section class="section">
+    <article class="section__article section__article--1">
+        <img src={Mockup2.src} alt="PymeWebTeam" class="section__article__img">
+    </article>
+    <article class="section__article section__article--2">
+        <h1 class="section__article__title">Quiénes somos</h1>
+        <div>
+            <p class="section__article__text section__article__text--1">¡Hola! Nosotros somos <span class="section__article__text--red">Isma y Xavi</span>, dos emprendedores con una visión clara: ayudar a las pequeñas y medianas empresas a tener una sólida presencia en internet a través de páginas web efectivas.</p>
+            <br>
+            <p class="section__article__text">Nuestra juventud es nuestra ventaja. Combinamos pasión, creatividad y conocimiento técnico con un compromiso inquebrantable hacia la satisfacción del cliente.</p>
+        </div>
+        <img src={Rectangle1.src} alt="PymeWebTeam" class="section__rectangle">
+    </article>
+</section>
+
+<style lang="scss">
+ .section {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch; /* Cambiamos align-items a stretch para igualar la altura de los elementos hijos */
+
+    &__article {
+        justify-self: flex-start;
+
+        &--1 {
+            margin-right: auto;
+            position: relative;
+        }
+
+        &--2 {
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 35vw;
+        }
+
+        &__text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            letter-spacing: -6%;
+
+            &--red {
+                color: #FF3232;
+            }
+
+            &--1{
+                color: #b6b6b6;
+            }
+        }
+    }
+
+    &__rectangle{
+        right: 0px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .section {
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+
+        &__article{
+
+            &--1{
+                order: 2;
+                margin-top: 30px;
+            }
+
+            &--2{
+                align-items: center;
+                width: 100vw;
+            }
+
+            &__img{
+                width: 80vw;
+            }
+
+            &__title{
+                width: 90vw;
+            }
+
+            &__text{
+                width: 90vw;
+            }
+        }
+    }
+}
+
+</style>

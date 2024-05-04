@@ -1,0 +1,122 @@
+---
+const { num, title, subtitle = "", color="black", order } = Astro.props;
+---
+
+<div class="work-container" data-color={color} data-order={order}>
+    <div class="work-container__num" data-num-color={color}>{num}</div>
+    <div class="work-container__txt-container">
+        <h1 class="work-container__txt-container__title">{title}</h1>
+        <h2 class="work-container__txt-container__subtitle">{subtitle}</h2>
+    </div>
+</div>
+
+<style lang="scss">
+    [data-color="black"]{
+        background-color: transparent;
+        color: #fff;
+        outline: 10px solid #fff;       
+    }
+
+    [data-color="white"]{
+        background-color: #fff;
+        color: #000;
+    }
+
+    [data-num-color="white"]{
+        background-color: #000;
+        color: #fff;
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+        border: 5px solid #fff;
+        outline: 5px solid #000;
+    }
+
+    [data-num-color="black"]{
+        background-color: #fff;
+        color: #000;
+        position: relative;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+        outline: 5px solid #000;
+    }
+
+    .work-container{
+        width: 260px;
+        height: 160px;
+        border-radius: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        transition: all .2s;
+
+        &:hover{
+            cursor: pointer;
+            scale: .9;
+        }
+
+        &__num{
+            font-family: 'Poppins', sans-serif;
+            position: absolute;
+            top: -15px;
+            left: -10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 3;
+        }
+
+        &__txt-container{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            font-family: 'Poppins';
+
+            &__title{
+                font-size: clamp(20px, 5vw, 24px);
+            }
+
+            &__subtitle{
+                font-size: clamp(14px, 4vw, 18px);
+                color: #747474;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 480px){
+        .work-container{
+            width: 200px;
+        }
+
+            [data-order="1"]{
+                order: 1;
+            }
+
+            [data-order="3"]{
+                order: 3;
+            }
+
+            [data-order="5"]{
+                order: 5;
+            }
+    }
+</style>

@@ -1,0 +1,118 @@
+---
+import WorkContainer from "./WorkContainer.astro";
+import Arrow from "./Arrow.astro";
+import Rectangle1 from "../../../assets/Rectangle-3.png";
+---
+
+<section class="section">
+    <h1 class="section__title">Cómo trabajamos</h1>
+    <article class="section__work-container">
+        <div class="section__work-container__container">
+            <WorkContainer title="Consulta y Planficación" color="white" num="1" subtitle="con el cliente"></WorkContainer>
+            <Arrow></Arrow>
+            <WorkContainer title="Diseño creativo y propuesta" color="black" num="2"></WorkContainer>
+            <Arrow></Arrow>
+            <WorkContainer title="Desarrollo Técnico" color="white" num="3"></WorkContainer>
+        </div>
+        <div class="section__work-container__container--2">    <Arrow direction="bottom" invisible="yes"></Arrow> <Arrow direction="bottom" invisible="yes"></Arrow><Arrow direction="bottom"></Arrow></div>
+        <div class="section__work-container__container">
+            <WorkContainer title="Mantenimiento y Actualizaciones" color="black" num="6" order="5"></WorkContainer>
+            <Arrow direction="left" order="2"></Arrow>
+            <WorkContainer title="Entrega y lanzamiento" color="white" num="5" order="5" order="3"></WorkContainer>
+            <Arrow direction="left" order="4"></Arrow>
+            <WorkContainer title="Pruebas y ajustes " color="black" num="4" order="6" subtitle="con el cliente" order="1"></WorkContainer>
+        </div>
+    </article>
+    <img src={Rectangle1.src} alt="PymeWebTeam" class="section__rectangle">
+</section>
+
+<style lang="scss">
+
+    .section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+
+        &__title{
+            margin-bottom: 30px;
+        }
+
+        &__work-container{
+            /* From https://css.glass */
+            background: #121212;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(9.7px);
+            -webkit-backdrop-filter: blur(9.7px);
+            opacity: .81;
+            border: 1.4px solid #949494;
+            width: 90vw;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 83px;
+
+            &__container{
+                gap: 20px;
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &--2{
+                    width: 90vw;
+                    display: flex;
+                    // gap: 100px;
+                    margin-top: 40px;
+                    margin-bottom: 60px;
+                    justify-content: space-around;
+                }
+            }
+        }
+
+        &__rectangle{
+            right: 0px;
+        }
+    }
+
+    @media only screen and (min-width: 1900px){
+        .section{
+
+            &__work-container{
+                padding: 100px;
+                width: 60vw;
+
+                &__container{
+
+                    &--2{
+                        width: 60vw;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 480px){
+        .section{
+
+            &__work-container{
+
+                &__container{
+                    flex-direction: column;
+                    align-items: center;
+
+                    &--2{
+                        margin: 0;
+                        // display: flex;
+                        // justify-content: center;
+                        // width: 100vw;
+                        // background-color: #0f0;
+                        // flex-direction: row;
+                    }
+                }
+            }
+        }
+    }
+</style>

@@ -1,0 +1,121 @@
+---
+import GalleryImg from "./GalleryImg.astro";
+import Img1 from "../../../assets/img-1.png";
+import Img2 from "../../../assets/img-2.png";
+import Img3 from "../../../assets/img-3.jpg";
+import Img4 from "../../../assets/img-4.png";
+import Img5 from "../../../assets/img-5.png";
+import Img6 from "../../../assets/img-6.png";
+---
+
+<section class="section">
+    <article class="section__gallery">
+        <div class="section__gallery__marquee">
+            <GalleryImg source={Img1.src} numPh={"3"} title={"diseños web"} order="one"></GalleryImg>
+            <GalleryImg source={Img2.src} numPh={"3"} title={"posters"}></GalleryImg>
+            <GalleryImg source={Img3.src} numPh={"5"} title={"variación"}></GalleryImg>
+            <div class="section__gallery__marquee__divider">
+                <GalleryImg source={Img2.src} numPh={"3"} title={"posters"}></GalleryImg>
+                <GalleryImg source={Img3.src} numPh={"5"} title={"variación"} order="three"></GalleryImg>
+            </div>
+        </div>
+        <div class="section__gallery__marquee section__gallery__marquee--right">
+            <GalleryImg source={Img4.src} numPh={"3"} title={"posts instagram"}></GalleryImg>
+            <GalleryImg source={Img6.src} numPh={"3"} title={"oropatrimonio.com"}></GalleryImg>
+            <div class="section__gallery__marquee__divider">
+                <GalleryImg source={Img4.src} numPh={"3"} title={"posts instagram"}></GalleryImg>
+                <GalleryImg source={Img6.src} numPh={"3"} title={"oropatrimonio.com"}></GalleryImg>
+            </div>
+            <GalleryImg source={Img5.src} numPh={"3"} title={"minadorbitcoin.com"}></GalleryImg>
+        </div>
+    </article>
+</section>
+
+<style lang="scss">
+    .section{
+        margin: 0;
+        width: 100vw;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #090909;
+        
+        &__gallery{
+            width: 100vw;
+
+            &__marquee{
+                display: flex;
+                justify-content: center;
+                width: 100vw;
+                gap: 55px;
+                // animation: marqueeAnimation 10s linear infinite; /* Ajusta la duración y velocidad según sea necesario */
+
+                &--right{
+                    margin-top: 38px;
+                    // animation: marqueeAnimationRight 10s linear infinite; /* Ajusta la duración y velocidad según sea necesario */
+                }
+
+                &__divider{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    @keyframes marqueeAnimation {
+        0% {
+            transform: translateX(100vw);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes marqueeAnimationRight {
+        0% {
+            transform: translateX(-100vw);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    @media only screen and (max-width: 480px){
+        .section{
+
+            &__gallery{
+                            
+                &__marquee{
+                    flex-direction: column;
+
+                    &__picture{
+                        height: 30vh;
+                    }
+
+                    &__divider{
+                        width: 100vw;
+                        justify-content: space-around;
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+<script is:inline>
+    const imagesArr = document.querySelector('.section__gallery__marquee').childNodes;
+    const imagesArr2 = document.querySelector('.section__gallery__marquee--right').childNodes;
+    const $image1 = imagesArr[3];
+    const $image2 = imagesArr[5];
+    const $image3 = imagesArr2[1];
+    const $image4 = imagesArr2[3];
+    console.log(imagesArr2);
+
+    if (window.screen.availWidth <= 480){
+        $image1.style.display = 'none';
+        $image2.style.display = 'none';
+        $image3.style.display = 'none';
+        $image4.style.display = 'none';
+    }
+
+</script>

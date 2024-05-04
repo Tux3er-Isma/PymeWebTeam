@@ -1,0 +1,83 @@
+---
+const { direction, order, invisible } = Astro.props;
+---
+
+<div class="arrow-container" data-direction={direction} data-order={order} data-invisible={invisible}>
+    <div class="arrow-container__large"></div>
+    <div class="arrow-container__head"></div>
+</div>
+
+<style lang="scss">
+    [data-direction="left"]{
+        transform: rotate(180deg);
+    }
+
+    [data-direction="bottom"]{
+        transform: rotate(90deg);
+        // width: 100px;
+        // position: relative;
+        // right: 44px;
+    }
+
+    [data-invisible="yes"]{
+        display: none;
+    }
+
+    .arrow-container{
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 65px;
+
+        &__large{
+            border-radius: 30px;
+            width: 60px;
+            height: 5px;
+            background-color: #fff;
+        }
+
+        &__head{
+            border-radius: 2.6px;
+            position: absolute;
+            transform: rotate(45deg);
+            width: 20px;
+            height: 20px;
+            border-top: 4.5px solid #fff;
+            border-right: 4.5px solid #fff;
+        }
+    }
+
+    
+    [data-direction="bottom"]{
+        transform: rotate(90deg);
+        // width: 100px;
+        // position: relative;
+        // right: 44px;
+    }
+
+    [data-invisible="yes"]{
+        opacity: 0;
+    }
+
+    @media only screen and (max-width: 480px){
+
+        .arrow-container{
+            margin-top: 80px;
+            margin-bottom: 80px;
+            transform: rotate(90deg)
+        }
+
+        [data-order="2"]{
+                order: 2;
+            }
+
+            [data-order="4"]{
+                order: 4;
+            }
+
+        [data-invisible="yes"]{
+            display: none;
+        }
+    }
+</style>

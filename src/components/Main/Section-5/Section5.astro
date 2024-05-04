@@ -1,0 +1,138 @@
+---
+import Rectangle1 from "../../../assets/Rectangle-4.png";
+---
+
+<section class="section">
+    <img src={Rectangle1.src} alt="PymeWebTeam" class="section__rectangle">
+    <h1 class="section__title">¿Por qué con nosotros?</h1>
+    <article class="section__island-container">
+        <h2 class="section__island-container__subtitle">¿Tienes preguntas? Pregúntaselo a <a href="/ia" class="section__island-container__subtitle__link">nuestra IA</a> o ponte en <a class="section__island-container__subtitle__link">contacto con nosotros</a></h2>
+        <div class="section__island-container__change-container">
+            <i class="fa-solid fa-arrow-left section__island-container__change-container__arrow" id="left-arrow"></i>
+            <div class="section__island-container__change-container__box" id="phrase">Diseños personalizados y profesionales</div>
+            <i class="fa-solid fa-arrow-right section__island-container__change-container__arrow" id="right-arrow"></i>
+        </div>
+    </article>
+</section>
+
+<style lang="scss">
+    .section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-weight: 500;
+
+        &__island-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+
+            &__subtitle {
+                margin-top: 80px;
+                margin-bottom: 40px;
+                font-size: clamp(14px, 4vw, 18px);
+
+                &__link {
+                    color: #FF5151;
+
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            &__change-container {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                font-size: 27px;
+
+                &__box {
+                    text-align: center;
+                    width: 600px;
+                    border: 1px solid #fff;
+                    padding: 15px;
+                    border-radius: 25px;
+                }
+
+                &__arrow {
+                    color: #fff;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        &__rectangle{
+            display: inline-block;
+            height: fit-content;
+        }
+    }
+
+    @media only screen and (max-width: 480px){
+        .section{
+            text-align: center;
+
+            &__subtitle{
+                text-align: center;
+            }
+
+            &__island-container{
+                width: 100vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                &__change-container{
+                    border: 1px solid #fff;
+                    height: 200px;
+                    border-left: 0px;
+                    border-right: 0px;
+
+                    &__box{
+                        border: none;
+                        width: 300px;
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', function () {
+        const phrases = ["Hola", "Diseños personalizados y profesionales", "pituto", "Buenas", "Adios"];
+        let currentPhraseIndex = 1; // Index of the initial phrase
+
+        // Get elements
+        const leftArrow = document.getElementById('left-arrow');
+        const rightArrow = document.getElementById('right-arrow');
+        const phraseBox = document.getElementById('phrase');
+
+        // Function to update the phrase
+        function updatePhrase() {
+            phraseBox.innerText = phrases[currentPhraseIndex];
+        }
+
+        // Event listener for left arrow
+        leftArrow.addEventListener('click', function () {
+            currentPhraseIndex = (currentPhraseIndex === 0) ? phrases.length - 1 : currentPhraseIndex - 1;
+            updatePhrase();
+        });
+
+        // Event listener for right arrow
+        rightArrow.addEventListener('click', function () {
+            currentPhraseIndex = (currentPhraseIndex === phrases.length - 1) ? 0 : currentPhraseIndex + 1;
+            updatePhrase();
+        });
+
+        // Initial phrase display
+        updatePhrase();
+    });
+</script>

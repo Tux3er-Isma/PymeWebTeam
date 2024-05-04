@@ -1,0 +1,32 @@
+---
+import Gallery from "./Section-1/Gallery.astro";
+import Section2 from "./Section-2/Section2.astro";
+import Section3 from "./Section-3/Section-3.astro";
+import Section4 from "./Section-4/Section4.astro";
+import Section5 from "./Section-5/Section5.astro";
+import Section6 from "./Section-6/Section6.astro";
+import Section7 from "./Section-7/Section7.astro";
+---
+
+<main class="main">
+    <hr class="main__hr--1">
+    <Gallery></Gallery>
+    <hr class="main__hr--1">
+    <Section2></Section2>
+    <Section3></Section3>
+    <Section4></Section4>
+    <Section5></Section5>
+    <Section6></Section6>
+    <Section7></Section7> 
+</main>
+
+
+<style lang="scss">
+    .main{
+        margin-top: 40px;
+
+        &__hr--1{
+            border: 1px solid #4B4B4B;
+        }
+    }
+</style>

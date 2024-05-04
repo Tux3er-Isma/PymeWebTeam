@@ -1,0 +1,55 @@
+---
+
+---
+
+<section class="section">
+    <h1 class="section__title">Eleva tu presencia online<br> ya.</h1>
+    <button type="button" class="section__btn">¡Estoy List@! <i class="fa-solid fa-circle-check section__btn__icon"></i></button>
+</section>
+
+<style lang="scss">
+    .section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgb(0,0,0);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(195,94,94,1) 100%);
+
+        &__title{
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: clamp(56px, 4vw, 90px);
+        }
+
+        &__btn{
+            margin-bottom: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            font-size: 23px;
+            font-weight: bold;
+            color: #000;
+            background-color: #fff;
+            width: 200px;
+            padding: 10px;
+            border-radius: 13px;
+            box-shadow: 0px 0px 30px 5px #fff;
+            transition: all .5s;
+
+            &__icon{
+                transition: all .5s;
+                color: #000;
+            }
+
+            &:hover{
+                box-shadow: 0px 0px 30px 5px #333;
+                background-color: #000;
+                color: #fff;
+            }
+
+            &:hover &__icon{
+                color: #fff;
+            }
+        }
+    }
+</style>
