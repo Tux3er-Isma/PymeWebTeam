@@ -1,0 +1,165 @@
+---
+import Nav from "./Nav.astro";
+import Letters from "./Letters.astro";
+---
+
+<header class="header">
+    <div class="header__fixed-container">
+        <Nav></Nav>
+    </div>
+    <h1 class="header__title">Imagina tener una <br>página web que tuviera...</h1>
+    <Letters></Letters>
+    <div class="header__responsive-btn-container">
+        <button type="button" class="header__responsive-btn-container__btn header__responsive-btn-container__btn--1">Explorar</button>
+        <button type="button" class="header__responsive-btn-container__btn header__responsive-btn-container__btn--2">¡Estoy List@! <i class="fa-solid fa-circle-check header__responsive-btn-container__icon"></i></button>
+    </div>
+</header>
+
+<style lang="scss">
+    .header {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        top: 0vh;
+        height: 100vh;
+
+        &__fixed-container {
+            position: fixed;
+            z-index: 10;
+            top: 0px;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s ease; /* Agrega una transición suave para el cambio de color */
+
+            &--blur{
+                /* From https://css.glass */
+                background: rgba(0, 0, 0, 0.39);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(8.6px);
+                -webkit-backdrop-filter: blur(8.6px);
+                border: 1px solid rgba(0, 0, 0, 1);
+            }
+        }
+
+        &__title{
+            text-align: center;
+            background: -webkit-linear-gradient(#FF5F5F, #eee );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: clamp(37px, 5vw, 90px);
+        }
+
+        &__responsive-btn-container{
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 480px){
+        .header{
+
+            &__title{
+                margin-top: 60px
+            }
+
+            &__responsive-btn-container{
+                display: flex;
+                flex-direction: column;
+
+                &__btn{
+                    outline: none;
+                    border: none;
+                    font-size: 16px;
+                }
+
+                &__btn--1{
+                    order: 2;
+                    margin-top: 20px;
+                    background-color: transparent;
+                    color: #fff;
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 400;
+
+                    &:hover{
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                }
+
+                &__btn--2{
+                    order: 1;
+                    background-color: #FF3232;
+                    border: 2px solid #FF3232;
+                    transition: all .5s;
+                    padding: 10px;
+                    font-family: 'Space Grotesk Variable', sans-serif;
+                    font-weight: bold;
+                    letter-spacing: -6%;
+                    display: flex;
+
+                    &:hover{
+                        background-color: transparent;
+                        color: #FF3232;
+                        cursor: pointer;
+
+                        .header__responsive-btn-container__icon{
+                            color: #FF3232;
+                        }
+                    }
+                }
+
+                &__icon{
+                    margin-left: 10px;
+                    color: #000;
+                    width: 20px;
+                    height: 20px;
+                    font-size: 20px;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: all .5s;
+                }
+            }
+        }
+    }
+</style>
+
+<script is:inline>
+        const $fixedContainer = document.querySelector('.header__fixed-container');
+
+// Función para cambiar el color del contenedor fijo
+function changeColorOnScroll() {
+    const scrollTop = window.scrollY; // Obtener la posición actual del scroll
+    if (scrollTop === 0) {
+        $fixedContainer.classList.remove('header__fixed-container--blur');
+    } else {
+        $fixedContainer.classList.add('header__fixed-container--blur');
+    }
+}
+
+// Agregar el event listener para el evento de scroll
+window.addEventListener('scroll', changeColorOnScroll);
+
+// Función para cambiar el título cuando el usuario se va de la página
+window.addEventListener('blur', function() {
+document.title = '¡No te vayas!';
+});
+
+// Función para restaurar el título cuando el usuario vuelve a la página
+window.addEventListener('focus', function() {
+document.title = 'PymeWebTeam';
+});
+    // Función para cambiar el título cuando el usuario se va de la página
+window.addEventListener('blur', function() {
+  document.title = '¡No te vayas!';
+});
+
+// Función para restaurar el título cuando el usuario vuelve a la página
+window.addEventListener('focus', function() {
+  document.title = 'Pyme Web';
+});
+
+</script>

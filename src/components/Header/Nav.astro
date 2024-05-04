@@ -1,0 +1,105 @@
+---
+import LogoDark from "../../assets/logo-dark.png";
+import Done from "../../assets/Done.png";
+---
+
+<nav class="nav">
+    <section class="nav__logo-container">
+        <img src={LogoDark.src} alt="Logo" class="nav__logo-container__logo">
+    </section>
+    <section class="nav__btn-container">
+        <button type="button" class="nav__btn-container__btn nav__btn-container__btn--1">Explorar</button>
+        <button type="button" class="nav__btn-container__btn nav__btn-container__btn--2">¡Estoy List@! <i class="fa-solid fa-circle-check nav__btn-container__icon"></i></button>
+    </section>
+</nav>
+
+<style lang="scss">
+    .nav{
+        padding-top: 14px;
+        padding-bottom: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80vw;
+        height: 76px;
+
+        &__logo-container{
+            width: 173px;
+                height: 51px;
+
+            &__logo{
+                position: relative;
+                z-index: 3;
+                width: 173px;
+                height: 51px;
+            }
+        }
+
+        &__btn-container{
+            display: flex;
+
+
+            &__btn{
+                outline: none;
+                border: none;
+                font-size: 16px;
+            }
+
+            &__btn--1{
+                margin-right: 50px;
+                background-color: transparent;
+                color: #fff;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+
+                &:hover{
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
+
+            &__btn--2{
+                background-color: #FF3232;
+                border: 2px solid #FF3232;
+                transition: all .5s;
+                padding: 10px;
+                font-family: 'Space Grotesk Variable', sans-serif;
+                font-weight: bold;
+                letter-spacing: -6%;
+                display: flex;
+
+                &:hover{
+                    background-color: transparent;
+                    color: #FF3232;
+                    cursor: pointer;
+
+                    .nav__btn-container__icon{
+                        color: #FF3232;
+                    }
+                }
+            }
+
+            &__icon{
+                margin-left: 10px;
+                color: #000;
+                width: 20px;
+                height: 20px;
+                font-size: 20px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all .5s;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 480px){
+        .nav{
+
+            &__btn-container{
+                display: none;
+            }
+        }
+    }
+</style>
