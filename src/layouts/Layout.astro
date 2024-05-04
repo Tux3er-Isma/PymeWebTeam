@@ -1,4 +1,9 @@
 ---
+import '@fontsource-variable/space-grotesk';
+import '@fontsource/poppins';
+import Logo from "../assets/Logo.png";
+import { ViewTransitions } from "astro:transitions";
+
 interface Props {
 	title: string;
 }
@@ -12,40 +17,101 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href={Logo.src} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />   
+		<!--Font Awesome -->
+		<script src="https://kit.fontawesome.com/a1618bce8f.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js" integrity="sha512-b4rL1m5b76KrUhDkj2Vf14Y0l1NtbiNXwV+SzOzLGv6Tz1roJHa70yr8RmTUswrauu2Wgb/xBJPR8v80pQYKtQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://unpkg.com/scrollreveal" is:raw></script>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+<style  lang="scss" is:global>
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+
+	body{
+		background-color: #000;
+		color: #fff;
+		overflow-x: hidden;
+		font-family: 'Space Grotesk Variable', sans-serif;
+		font-weight: 400;
+		letter-spacing: -6%;
+
+		&::-webkit-scrollbar{
+			width: 7px;
+			color: #161616;
+		}
+
+		&::-webkit-scrollbar-track{
+			background-color: #161616;
+		}
+
+		&::-webkit-scrollbar-thumb{
+			border-radius: 30px;
+			transition: all .5s;
+			background-color: #FF3232;
+		}
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	button{
+		border: none;
+		outline: none;
+
+		&:hover{
+			cursor: pointer;
+		}
+	}
+
+	.section{
+		margin-top: 200px;
+	}
+
+	.section__article__title, .section__title{
+		font-weight: 500;
+        font-size: clamp(41px, 3vw, 55px);
+	}
+
+	hr{
+		width: 100vw;
+		border: 1px solid #4B4B4B;
+	}
+
+	.main__hr--1-r{
+		display: none;
+	}
+
+	@media only screen and (max-width: 480px){
+		.main__hr--1-r{
+			display: block; 
+		}
+
+		.section{
+			margin-top: 100px;
+
+			&__article{
+
+				&__title{
+					margin-bottom: 20px;
+				}
+			}
+		}
+
+		.section__rectangle{
+			width: 300px;
+		}
+	}
+
+	.section__rectangle{
+		position: absolute;
+		z-index: -1;
 	}
 </style>
