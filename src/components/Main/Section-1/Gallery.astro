@@ -1,10 +1,7 @@
 ---
 import GalleryImg from "./GalleryImg.astro";
 import Img1 from "../../../assets/img-1.png";
-import Img2 from "../../../assets/img-2.png";
 import Img3 from "../../../assets/img-3.jpg";
-import Img4 from "../../../assets/img-4.png";
-import Img5 from "../../../assets/img-5.png";
 import Img6 from "../../../assets/img-6.png";
 ---
 
@@ -12,21 +9,21 @@ import Img6 from "../../../assets/img-6.png";
     <article class="section__gallery">
         <div class="section__gallery__marquee">
             <GalleryImg source={Img1.src} numPh={"3"} title={"diseños web"} order="one"></GalleryImg>
-            <GalleryImg source={Img2.src} numPh={"3"} title={"posters"}></GalleryImg>
+            <GalleryImg source="https://cdn.discordapp.com/attachments/973568724722389052/1236652996688085033/img-2_2_1-min.png?ex=6638ca5a&is=663778da&hm=e2493c85cf972b98c1a27018d135c33112e90424622c468555d37c3c9f0a6511&" numPh={"3"} title={"posters"}></GalleryImg>
             <GalleryImg source={Img3.src} numPh={"5"} title={"variación"}></GalleryImg>
             <div class="section__gallery__marquee__divider">
-                <GalleryImg source={Img2.src} numPh={"3"} title={"posters"}></GalleryImg>
+                <GalleryImg source="https://cdn.discordapp.com/attachments/973568724722389052/1236652996688085033/img-2_2_1-min.png?ex=6638ca5a&is=663778da&hm=e2493c85cf972b98c1a27018d135c33112e90424622c468555d37c3c9f0a6511&" numPh={"3"} title={"posters"}></GalleryImg>
                 <GalleryImg source={Img3.src} numPh={"5"} title={"variación"} order="three"></GalleryImg>
             </div>
         </div>
         <div class="section__gallery__marquee section__gallery__marquee--right">
-            <GalleryImg source={Img4.src} numPh={"3"} title={"posts instagram"}></GalleryImg>
+            <GalleryImg source="https://cdn.discordapp.com/attachments/973568724722389052/1236652998785237023/img-4.png?ex=6638ca5a&is=663778da&hm=5c2ac722534aa85f2ac268514d6f0b993e143dd2bf0e86f37972e8707655febb&" numPh={"3"} title={"posts instagram"}></GalleryImg>
             <GalleryImg source={Img6.src} numPh={"3"} title={"oropatrimonio.com"}></GalleryImg>
             <div class="section__gallery__marquee__divider">
-                <GalleryImg source={Img4.src} numPh={"3"} title={"posts instagram"}></GalleryImg>
+                <GalleryImg source="https://cdn.discordapp.com/attachments/973568724722389052/1236652998785237023/img-4.png?ex=6638ca5a&is=663778da&hm=5c2ac722534aa85f2ac268514d6f0b993e143dd2bf0e86f37972e8707655febb&" numPh={"3"} title={"posts instagram"}></GalleryImg>
                 <GalleryImg source={Img6.src} numPh={"3"} title={"oropatrimonio.com"}></GalleryImg>
             </div>
-            <GalleryImg source={Img5.src} numPh={"3"} title={"minadorbitcoin.com"}></GalleryImg>
+            <GalleryImg source="https://cdn.discordapp.com/attachments/973568724722389052/1236652999539949650/img-5.png?ex=6638ca5a&is=663778da&hm=8e007bde57b608caa99a157a78f76ea702789312de426d2ce79648892c9c95fc&" numPh={"3"} title={"minadorbitcoin.com"}></GalleryImg>
         </div>
     </article>
 </section>
@@ -37,7 +34,10 @@ import Img6 from "../../../assets/img-6.png";
         width: 100vw;
         padding-top: 40px;
         padding-bottom: 40px;
-        background-color: #090909;
+        background: #121212;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(9.7px);
+        -webkit-backdrop-filter: blur(9.7px);
         
         &__gallery{
             width: 100vw;

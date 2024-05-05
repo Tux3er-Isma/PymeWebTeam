@@ -11,7 +11,7 @@ import IABtn from "../components/IA/IABtn.astro";
 	<Main></Main>
 	<Footer></Footer> 
 	<IABtn></IABtn>
-	<script is:inline>
+	<!-- <script is:inline>
 		const $gallery = document.querySelector(".picture");
 		lightGallery($gallery, {
 			counter: false,
@@ -22,12 +22,12 @@ import IABtn from "../components/IA/IABtn.astro";
 			counter: false,
 			download: false
 		});
-	</script>
+	</script> -->
 </Layout>
 
 <script is:inline>
-
-	window.sr = ScrollReveal();
+	document.addEventListener('astro:after-swap', () =>{
+		window.sr = ScrollReveal();
 	
 	const workContainerArr = document.querySelector('.section__work-container').childNodes;
 	const container1 = workContainerArr[1].childNodes[1];
@@ -156,4 +156,136 @@ import IABtn from "../components/IA/IABtn.astro";
 	})
 	
 	}
+	})
+	document.addEventListener('DOMContentLoaded', () =>{
+		window.sr = ScrollReveal();
+	
+	const workContainerArr = document.querySelector('.section__work-container').childNodes;
+	const container1 = workContainerArr[1].childNodes[1];
+	const container2 = workContainerArr[1].childNodes[5];
+	const container3 = workContainerArr[1].childNodes[9];
+	const arrow1 = workContainerArr[1].childNodes[3];
+	const arrow2 = workContainerArr[1].childNodes[7];
+	const arrow3 = workContainerArr[3].childNodes[5];
+	const container4 = workContainerArr[5].childNodes[1];
+	const container5 = workContainerArr[5].childNodes[5];
+	const container6 = workContainerArr[5].childNodes[9];
+	const arrow4 = workContainerArr[5].childNodes[3];
+	const arrow5 = workContainerArr[5].childNodes[7];
+	console.log(workContainerArr)
+	sr.reveal(container1, {
+		origin: 'left',
+		distance: '15px',
+		duration: 500
+	})
+	sr.reveal(arrow1, {
+		origin: 'left',
+		distance: '100px',
+		duration: 600
+	})
+	sr.reveal(container2, {
+		origin: 'left',
+		distance: '100px',
+		duration: 700
+	})
+	sr.reveal(arrow2, {
+		origin: 'left',
+		distance: '100px',
+		duration: 800
+	})
+	sr.reveal(container3, {
+		origin: 'left',
+		distance: '100px',
+		duration: 900
+	})
+	sr.reveal(arrow3, {
+		origin: 'left',
+		distance: '30px',
+		duration: 1000
+	})
+	sr.reveal(container4, {
+		origin: 'right',
+		distance: '100px',
+		duration: 1100
+	})
+	sr.reveal(arrow4, {
+		origin: 'left',
+		distance: '100px',
+		duration: 1200
+	})
+	sr.reveal(container5, {
+		origin: 'right',
+		distance: '100px',
+		duration: 1300
+	})
+	sr.reveal(arrow5, {
+		origin: 'left',
+		distance: '100px',
+		duration: 1400
+	})
+	sr.reveal(container6, {
+		origin: 'right',
+		distance: '100px',
+		duration: 1500
+	})
+	
+	if (window.screen.availWidth <= 480){
+		sr.reveal(container1, {
+		origin: 'top',
+		distance: '15px',
+		duration: 500
+	})
+	sr.reveal(arrow1, {
+		origin: 'left',
+		distance: '100px',
+		duration: 600
+	})
+	sr.reveal(container2, {
+		origin: 'top',
+		distance: '100px',
+		duration: 700
+	})
+	sr.reveal(arrow2, {
+		origin: 'left',
+		distance: '100px',
+		duration: 800
+	})
+	sr.reveal(container3, {
+		origin: 'top',
+		distance: '100px',
+		duration: 900
+	})
+	sr.reveal(arrow3, {
+		origin: 'left',
+		distance: '30px',
+		duration: 1000
+	})
+	sr.reveal(container4, {
+		origin: 'top',
+		distance: '100px',
+		duration: 1100
+	})
+	sr.reveal(arrow4, {
+		origin: 'left',
+		distance: '100px',
+		duration: 1200
+	})
+	sr.reveal(container5, {
+		origin: 'top',
+		distance: '100px',
+		duration: 1300
+	})
+	sr.reveal(arrow5, {
+		origin: 'left',
+		distance: '100px',
+		duration: 1400
+	})
+	sr.reveal(container6, {
+		origin: 'top',
+		distance: '100px',
+		duration: 1500
+	})
+	
+	}
+	})
 	</script>

@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-
+import { ViewTransitions } from "astro:transitions";
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description,heroImage } = Astro.props;
@@ -47,11 +47,12 @@ const { title, description,heroImage } = Astro.props;
 				font-style: italic;
 			}
 		</style>
+				<ViewTransitions />   
 	</head>
 
 	<body>
 		<main>
-			<article>
+			<article transition:name="post">
 				<div class="hero-image">
 					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
 				</div>

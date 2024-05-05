@@ -1,8 +1,8 @@
 ---
-title: 'Dragibus'
-description: 'Necessito dragibus'
+title: 'Osvaldo'
+description: 'Easter Egg'
 pubDate: 'Jul 08 2022'
-heroImage: 'https://www.hariboencasa.es/media/catalog/product/cache/f7f144860b163c6b6f075760a728b81b/d/r/dragibus_soft_32b_x_180g__950x900_1.webp'
+heroImage: 'https://i.pinimg.com/736x/eb/f1/aa/ebf1aa075133fe3b82f49d25533f5378.jpg'
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.

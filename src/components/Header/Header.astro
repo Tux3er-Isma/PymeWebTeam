@@ -128,6 +128,7 @@ import Letters from "./Letters.astro";
 </style>
 
 <script is:inline>
+    document.addEventListener('DOMContentLoaded', () =>{
         const $fixedContainer = document.querySelector('.header__fixed-container');
 
 // Función para cambiar el color del contenedor fijo
@@ -161,5 +162,41 @@ window.addEventListener('blur', function() {
 window.addEventListener('focus', function() {
   document.title = 'Pyme Web';
 });
+    })
 
+document.addEventListener('astro:after-swap', () =>{
+    const $fixedContainer = document.querySelector('.header__fixed-container');
+
+// Función para cambiar el color del contenedor fijo
+function changeColorOnScroll() {
+    const scrollTop = window.scrollY; // Obtener la posición actual del scroll
+    if (scrollTop === 0) {
+        $fixedContainer.classList.remove('header__fixed-container--blur');
+    } else {
+        $fixedContainer.classList.add('header__fixed-container--blur');
+    }
+}
+
+// Agregar el event listener para el evento de scroll
+window.addEventListener('scroll', changeColorOnScroll);
+
+// Función para cambiar el título cuando el usuario se va de la página
+window.addEventListener('blur', function() {
+document.title = '¡No te vayas!';
+});
+
+// Función para restaurar el título cuando el usuario vuelve a la página
+window.addEventListener('focus', function() {
+document.title = 'PymeWebTeam';
+});
+    // Función para cambiar el título cuando el usuario se va de la página
+window.addEventListener('blur', function() {
+  document.title = '¡No te vayas!';
+});
+
+// Función para restaurar el título cuando el usuario vuelve a la página
+window.addEventListener('focus', function() {
+  document.title = 'Pyme Web';
+});
+})
 </script>

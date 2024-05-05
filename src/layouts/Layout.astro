@@ -19,6 +19,7 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={Logo.src} />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="view-transiton" content="same-origin">
 		<title>{title}</title>
 		<ViewTransitions />   
 		<!--Font Awesome -->
@@ -27,8 +28,25 @@ const { title } = Astro.props;
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js" integrity="sha512-b4rL1m5b76KrUhDkj2Vf14Y0l1NtbiNXwV+SzOzLGv6Tz1roJHa70yr8RmTUswrauu2Wgb/xBJPR8v80pQYKtQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script src="https://unpkg.com/scrollreveal" is:raw></script>
 	</head>
-	<body>
+	<body transition:persist>
 		<slot />
+		<script>
+			declare global {
+				interface Window {
+					netlifyIdentity: any;
+				}
+			}
+
+			if (window.netlifyIdentity) {
+			  window.netlifyIdentity.on("init", ((user: any) => {
+				if (!user) {
+				  window.netlifyIdentity.on("login", () => {
+					document.location.href = "/admin/";
+				  });
+				}
+			  }));
+			}
+		  </script>
 	</body>
 </html>
 <style  lang="scss" is:global>
@@ -87,6 +105,15 @@ const { title } = Astro.props;
 
 	.main__hr--1-r{
 		display: none;
+	}
+	
+	a{
+		text-decoration: none;
+		color: #fff;
+
+		&:visited{
+			text-decoration: none;
+		}
 	}
 
 	@media only screen and (max-width: 480px){

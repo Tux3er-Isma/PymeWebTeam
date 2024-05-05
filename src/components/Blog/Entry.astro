@@ -1,0 +1,28 @@
+---
+const { title, subtitle, link } = Astro.props;
+---
+
+<a href={link}>
+    <div class="entry">
+        <h1 class="entry__title">{title}</h1>
+        <h2 class="entry__subtitle">{subtitle}</h2>
+    </div>
+</a>
+
+<style lang="scss">
+    .entry{
+        border-radius: 21px;
+        margin: 10px 0px 0px 0px;
+        padding: 20px;
+        background-color: #181B27;
+
+        &__title{
+            font-size: 16px;
+        }
+
+        &__subtitle{
+            font-size: 15px;
+            color: #747474;
+        }
+    }
+</style>

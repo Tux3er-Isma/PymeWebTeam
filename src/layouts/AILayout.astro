@@ -1,0 +1,62 @@
+---
+import '@fontsource-variable/space-grotesk';
+import '@fontsource/poppins';
+import Logo from "../assets/Logo.png";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href={Logo.src} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+        <meta name="view-transiton" content="same-origin">
+		<ViewTransitions />   
+		<!-- Font Awesome -->
+		<script src="https://kit.fontawesome.com/a1618bce8f.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style  lang="scss" is:global>
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	body{
+		background-color: #000;
+		color: #fff;
+		overflow-x: hidden;
+		font-family: 'Space Grotesk Variable', sans-serif;
+		font-weight: 400;
+		letter-spacing: -6%;
+
+		&::-webkit-scrollbar{
+			width: 7px;
+			color: #161616;
+		}
+
+		&::-webkit-scrollbar-track{
+			background-color: #161616;
+		}
+
+		&::-webkit-scrollbar-thumb{
+			border-radius: 30px;
+			transition: all .5s;
+			background-color: #FF3232;
+		}
+	}
+</style>

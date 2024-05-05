@@ -1,13 +1,23 @@
 ---
-import Miniatures from "./Miniatures.astro"
+import Miniatures from "./Miniatures.astro";
+import Igm1 from "../../../assets/blogSection_img1.png";
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
 ---
 
 <section class="section">
     <h1 class="section__title">Blog y noticias</h1>
     <hr class="main__hr--1">
-    <marquee class="section__marquee">
-        <Miniatures title="¡Nueva web! Oro Patrimonio" subtitle="cambio en las politi..."></Miniatures>
-    </marquee>
+    <div class="section__marquee">
+        {
+			posts.map((post) => (
+                <Miniatures source={post.data.heroImage} title={post.data.title} subtitle={post.data.description}></Miniatures>
+			))
+		}
+    </div>
     <hr class="main__hr--1">
 </section>
 
@@ -17,6 +27,19 @@ import Miniatures from "./Miniatures.astro"
         flex-direction: column;
         align-items: center;
         font-weight: 500;
+
+        &__marquee{
+            height: 400px;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            animation: marquee 20s linear infinite;
+
+            @keyframes marquee {
+                0% { transform: translateX(100%); }
+                100% { transform: translateX(-100%); }
+            }
+        }
 
         &__title{
             margin-bottom: 80px;
