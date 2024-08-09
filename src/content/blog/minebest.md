@@ -2,7 +2,7 @@
 title: 'Minador Bitcoin'
 description: 'Nueva Web'
 pubDate: 'Jul 08 2022'
-heroImage: 'https://cdn.discordapp.com/attachments/973568724722389052/1236644320531189860/image_4.png?ex=6638c245&is=663770c5&hm=20cd8bb6f50770ca42900c528a2e6105663d0ef2c41e6c6fccd3383ee6165992&'
+heroImage: 'https://cdn.discordapp.com/attachments/973568724722389052/1236644320531189860/image_4.png?ex=666f7885&is=666e2705&hm=58e226163c70a445a2f7a493f86dab4e0cd9f0d5bf5c994cadae5cc50aa314d9&'
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.

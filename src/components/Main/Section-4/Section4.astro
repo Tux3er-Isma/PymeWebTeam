@@ -2,6 +2,7 @@
 import WorkContainer from "./WorkContainer.astro";
 import Arrow from "./Arrow.astro";
 import Rectangle1 from "../../../assets/Rectangle-3.png";
+import { Image } from "astro:assets";
 ---
 
 <section class="section">
@@ -23,7 +24,7 @@ import Rectangle1 from "../../../assets/Rectangle-3.png";
             <WorkContainer title="Pruebas y ajustes " color="black" num="4" order="6" subtitle="con el cliente" order="1"></WorkContainer>
         </div>
     </article>
-    <img src={Rectangle1.src} alt="PymeWebTeam" class="section__rectangle">
+    <Image src={Rectangle1} alt="PymeWebTeam" format="avif" class={"section__rectangle"} />
 </section>
 
 <style lang="scss">
@@ -40,12 +41,12 @@ import Rectangle1 from "../../../assets/Rectangle-3.png";
 
         &__work-container{
             /* From https://css.glass */
-            background: #121212;
+            background: rgba(190, 190, 190, 0.12);
+            border-radius: 16px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(9.7px);
-            -webkit-backdrop-filter: blur(9.7px);
-            opacity: .81;
-            border: 1.4px solid #949494;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(190, 190, 190, 0.33);
             width: 90vw;
             padding: 50px;
             display: flex;

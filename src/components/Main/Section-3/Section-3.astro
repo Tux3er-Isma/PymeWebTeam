@@ -1,178 +1,265 @@
 ---
+import { Image } from "astro:assets";
 import ImgSection3_1 from "../../../assets/ImgSection3_1.png";
 import ImgSection3_2 from "../../../assets/ImgSection3_2.png";
 import ImgSection3_3 from "../../../assets/ImgSection3_3.png";
 import Rectangle1 from "../../../assets/Rectangle-2.png";
 ---
 
-<section class="section">
+<section class="section section--3">
     <article class="section__article section__article--1">
         <div class="section__article__header">
             <h1 class="section__article__title">Qué hacemos</h1>
             <h2 class="section__article__subtitle">Nos especializamos en:</h2>
         </div>
         <ul class="section__article__list-container">
-            <li class="section__article__list-container__items">Diseño y desarrollo de páginas web</li>
-            <li class="section__article__list-container__items">Mantenimiento de redes sociales</li>
-            <li class="section__article__list-container__items">Creación y edición de videos para redes sociales</li>
-            <li class="section__article__list-container__items">Mantenimiento y actualización continua</li>
-            <li class="section__article__list-container__items">Copy Writing</li>
+            <li class="section__article__list-container__items">
+                Diseño y desarrollo de páginas web
+            </li>
+            <li class="section__article__list-container__items">
+                Mantenimiento de redes sociales
+            </li>
+            <li class="section__article__list-container__items">
+                Creación y edición de videos para redes sociales
+            </li>
+            <li class="section__article__list-container__items">
+                Mantenimiento y actualización continua
+            </li>
+            <li class="section__article__list-container__items">
+                Copy Writing
+            </li>
         </ul>
-        <button type="button" class="section__article__btn">ver presentación <i class="fa-solid fa-circle-arrow-right section__article__btn__icon"></i></button>
-        <img src={Rectangle1.src} alt="PymeWebTeam" class="section__rectangle">
+        <button type="button" class="section__article__btn"
+            >ver presentación <i
+                class="fa-solid fa-circle-arrow-right section__article__btn__icon"
+            ></i></button
+        >
+        <img
+            src={Rectangle1.src}
+            alt="PymeWebTeam"
+            class="section__rectangle"
+        />
     </article>
     <!-- <hr class="main__hr--1 main__hr--1-r"> -->
-    <article class="section__article section__article--2">
-        <img src={ImgSection3_1.src} alt="PymeWebTeam" class="section__article__img">
-        <img src={ImgSection3_2.src} alt="PymeWebTeam" class="section__article__img">
-        <img src={ImgSection3_3.src} alt="PymeWebTeam" class="section__article__img">
+    <article
+        class="section__article section__article--2 section--3__article--2"
+    >
+        <Image
+            src={ImgSection3_1}
+            alt="PymeWebTeam"
+            format="avif"
+            class={"section__article__img"}
+        />
+        <Image
+            src={ImgSection3_2}
+            alt="PymeWebTeam"
+            format="avif"
+            class={"section__article__img"}
+        />
+        <Image
+            src={ImgSection3_3}
+            alt="PymeWebTeam"
+            format="avif"
+            class={"section__article__img"}
+        />
     </article>
 </section>
 
 <style lang="scss">
     .section {
-       display: flex;
-       justify-content: space-around;
-       align-items: stretch; /* Cambiamos align-items a stretch para igualar la altura de los elementos hijos */
-
-       &__article{
         display: flex;
-        flex-direction: column;
+        justify-content: space-around;
+        align-items: stretch; /* Cambiamos align-items a stretch para igualar la altura de los elementos hijos */
 
-        &__subtitle{
-            margin-top: 20px;
-            margin-left: 20px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 400;
-            font-size: clamp(16px, 3vw, 23px);
-            color: #b6b6b6;
-        } 
-
-        &__list-container{
-            font-family: 'Poppins', sans-serif;
-            margin-left: 30px;
-            list-style-type: square;
+        &__article {
             display: flex;
             flex-direction: column;
-            gap: 10px;
 
-            &__items{
-                font-size: 18px;
+            &__subtitle {
+                margin-top: 20px;
+                margin-left: 20px;
+                font-family: "Poppins", sans-serif;
+                font-weight: 400;
+                font-size: clamp(16px, 3vw, 23px);
+                color: #b6b6b6;
+            }
 
-                &::marker{
-                    color: red;
+            &__list-container {
+                font-family: "Poppins", sans-serif;
+                margin-left: 30px;
+                list-style-type: square;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                &__items {
+                    font-size: 18px;
+
+                    &::marker {
+                        color: red;
+                    }
+                }
+            }
+
+            &__btn {
+                font-family: "Space-Grotesk-Variable", sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 272px;
+                height: 47px;
+                color: #fff;
+                background-color: #ff3d3d;
+                font-size: 23px;
+                font-weight: 500;
+                letter-spacing: -6%;
+                border-radius: 27px;
+                box-shadow:
+                    0px 0px 998.42px 1px #ff3d3d,
+                    0px 0px 570.53px 1px #ff3d3d,
+                    0px 0px 332.81px 1px #ff3d3d,
+                    0px 0px 166.4px 1px #ff3d3d,
+                    0px 0px 47.54px 1px #ff3d3d,
+                    0px 0px 23.77px 1px #ff3d3d;
+                transition: all 0.5s;
+
+                &__icon {
+                    font-size: 23px;
+                    color: #fff;
+                    transition: all 0.5s;
+                }
+
+                &:hover {
+                    background-color: #fff;
+                    color: #ff3d3d;
+                    box-shadow:
+                        0px 0px 998.42px 1px #fff,
+                        0px 0px 570.53px 1px #fff,
+                        0px 0px 332.81px 1px #fff,
+                        0px 0px 166.4px 1px #fff,
+                        0px 0px 47.54px 1px #fff,
+                        0px 0px 23.77px 1px #fff;
+                    transform: scale(1.1);
+                }
+
+                &:hover &__icon {
+                    color: #ff6666;
+                }
+            }
+
+            &--1 {
+                justify-content: space-evenly;
+            }
+
+            &--2 {
+                padding: 30px;
+                border: 1px solid #3e3e3e;
+                border-radius: 83px;
+                height: 80vh;
+                justify-content: space-between;
+                background: #121212;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(9.7px);
+                -webkit-backdrop-filter: blur(9.7px);
+
+                &::before {
+                    top: 0px;
+                    background: radial-gradient(
+                        1000px circle at var(--mouse-x) var(--mouse-y),
+                        rgba(255, 255, 255, 0.06),
+                        transparent 40%
+                    );
+                    border-radius: inherit;
+                    content: "";
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    z-index: 2;
                 }
             }
         }
 
-        &__btn{
-            font-family: 'Space-Grotesk-Variable', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            width: 272px;
-            height: 47px;
-            color: #fff;
-            background-color: #FF3D3D;
-            font-size: 23px;
-            font-weight: 500;
-            letter-spacing: -6%;
-            border-radius: 27px;
-            box-shadow: 0px 0px 998.42px 1px #ff3d3d, 0px 0px 570.53px 1px #ff3d3d, 0px 0px 332.81px 1px #ff3d3d, 0px 0px 166.4px 1px #ff3d3d, 0px 0px 47.54px 1px #ff3d3d, 0px 0px 23.77px 1px #ff3d3d;
-            transition: all .5s;
-
-            &__icon{
-                font-size: 23px;
-                color: #fff;
-                transition: all .5s;
-            }
-            
-            &:hover{
-                background-color: #fff;
-                color: #FF3D3D;
-                box-shadow: 0px 0px 998.42px 1px #fff, 0px 0px 570.53px 1px #fff, 0px 0px 332.81px 1px #fff, 0px 0px 166.4px 1px #fff, 0px 0px 47.54px 1px #fff, 0px 0px 23.77px 1px #fff;
-                transform: scale(1.1);
-            }
-
-            &:hover &__icon{
-                color: #FF6666;
-            }
-        }
-
-        &--1{
-            justify-content: space-evenly;
-        }
-
-        &--2{
-            padding: 30px;
-            border: 1px solid #3e3e3e;
-            border-radius: 83px;
-            height: 80vh;
-            justify-content: space-between;
-            background: #121212;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(9.7px);
-            -webkit-backdrop-filter: blur(9.7px);
-
-        }
-       }
-
-       &__rectangle{
-        left: 0px;
-       }
-    }
-   
-   @media only screen and (max-width: 480px) {
-       .section {
-        align-items: center;
-           flex-direction: column;
-           width: 100vw;
-
-           &__article{
-            align-items: center;
-
-            &__list-container{
-                width: 80vw;
-            }
-
-            &--2{
-                padding: 0;
-
-                height: 45vh;
-                width: 90vw;
-            }
-
-            &__header{
-                width: 90vw;
-            }
-
-            &__img{
-                width: 100vw;
-            }
-
-            &__btn{
-                margin-top: 40px;
-                margin-bottom: 40px
-            }
-           }
+        &__rectangle {
+            left: 0px;
         }
     }
 
-    @media only screen and (min-width: 1900px){
-        .section{
+    @media only screen and (max-width: 480px) {
+        .section {
+            align-items: center;
+            flex-direction: column;
+            width: 100vw;
+
+            &__article {
+                align-items: center;
+
+                &__list-container {
+                    width: 80vw;
+                }
+
+                &--2 {
+                    padding: 0;
+
+                    height: 45vh;
+                    width: 90vw;
+                }
+
+                &__header {
+                    width: 90vw;
+                }
+
+                &__img {
+                    width: 100vw;
+                }
+
+                &__btn {
+                    margin-top: 40px;
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1900px) {
+        .section {
             align-items: center;
 
-            &__article{
-
-                &--1{
+            &__article {
+                &--1 {
                     height: 600px;
                 }
 
-                &--2{
+                &--2 {
                     height: 50vh;
                 }
             }
         }
     }
-   
-   </style>
+</style>
+
+<script is:inline>
+    document.addEventListener("astro:after-swap", () => {
+        const section1 = document.querySelector(".section--3__article--2");
+        section1.addEventListener("mousemove", (evt) => {
+            const rect = section1.getBoundingClientRect(),
+                x = evt.clientX - rect.left,
+                y = evt.clientY - rect.top;
+
+            section1.style.setProperty("--mouse-x", `${x}px`);
+            section1.style.setProperty("--mouse-y", `${y}px`);
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const section1 = document.querySelector(".section--3__article--2");
+        section1.addEventListener("mousemove", (evt) => {
+            const rect = section1.getBoundingClientRect(),
+                x = evt.clientX - rect.left,
+                y = evt.clientY - rect.top;
+
+            section1.style.setProperty("--mouse-x", `${x}px`);
+            section1.style.setProperty("--mouse-y", `${y}px`);
+        });
+    });
+</script>

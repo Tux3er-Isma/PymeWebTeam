@@ -15,7 +15,8 @@ const { source, title, subtitle } = Astro.props;
         text-decoration: none;
         display: flex;
         flex-direction: column;
-        width: 500px;
+        width: 300px;
+        height: 250px;
 
         
         &:visited{
@@ -23,6 +24,8 @@ const { source, title, subtitle } = Astro.props;
         }
 
         &__img{
+            height: 200px;
+            border-radius: 30px;
             width: 100%;
         }
 
@@ -50,4 +53,10 @@ const { source, title, subtitle } = Astro.props;
             }
         }
     }
+
+    // @media only screen and (max-width: 480px){
+    //     .box{
+    //         width: 300px;
+    //     }
+    // }
 </style>

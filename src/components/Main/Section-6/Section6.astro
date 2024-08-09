@@ -30,6 +30,7 @@ const posts = (await getCollection('blog')).sort(
 
         &__marquee{
             height: 400px;
+            gap: 100px;
             width: 100vw;
             display: flex;
             align-items: center;
@@ -43,6 +44,20 @@ const posts = (await getCollection('blog')).sort(
 
         &__title{
             margin-bottom: 80px;
+        }
+    }
+
+    @media only screen and (max-width: 480px){
+        .section{
+
+            &__marquee{
+                margin-top: 30px;
+                margin-bottom: 30px;
+                height: fit-content;
+                flex-direction: column;
+                animation: none;
+                gap: 10px;
+            }
         }
     }
 </style>

@@ -2,7 +2,7 @@
 title: 'Oro Patrimonio'
 description: 'Nueva Web'
 pubDate: 'Jul 08 2022'
-heroImage: 'https://cdn.discordapp.com/attachments/973568724722389052/1236623907851730954/blogSection_img1.png?ex=6638af42&is=66375dc2&hm=4347859521671262b76f0c9affcc113c86bd6af6ef231a51630f54eca2db306b&'
+heroImage: 'https://cdn.discordapp.com/attachments/973568724722389052/1236623907851730954/blogSection_img1.png?ex=66700e42&is=666ebcc2&hm=875ab5cae905160d20ef4fe5e5e09bed8abe29e8ad66c2bd82afe69597a847a5&'
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.

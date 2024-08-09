@@ -1,13 +1,10 @@
 ---
 import { Image } from "astro:assets";
-const { source, numPh, title, order, imgNum, imgsArr } = Astro.props;
+const { source, numPh, title, order, imgNum, link } = Astro.props;
 ---
 
-<div class="gallery">
-    {imgsArr.map((source, index) =>(
-        <a href={source}></a>
-    ))}
-    <a class="picture" data-small={imgNum} href={source.src}>
+<div class="gallery-link">
+    <a class="picture" data-small={imgNum} href={link} target="_blank" >
         <Image
             src={source}
             alt="PymeWebTeam"

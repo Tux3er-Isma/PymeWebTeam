@@ -1,56 +1,181 @@
 ---
-
+import Input from "./Input.astro";
+import Textare from "./Textare.astro";
+import Checkbox from "./Checkbox.astro";
+import SendBtn from "./SendBtn.astro";
 ---
 
 <section class="section">
-    <h1 class="section__title">Eleva tu presencia online<br> ya.</h1>
-    <button type="button" class="section__btn">¡Estoy List@! <i class="fa-solid fa-circle-check section__btn__icon"></i></button>
+    <h1 class="section__title">Eleva tu presencia online<br /> ya.</h1>
+    <!-- <button type="button" class="section__btn">¡Estoy List@! <i class="fa-solid fa-circle-check section__btn__icon"></i></button> -->
+
+    <form class="form" onsubmit="return false">
+        <Input label="Nombre y apellidos" placeholder="John Doe" type="text" />
+        <Input label="Email" placeholder="johndoe@example.com" type="email" />
+        <Textare
+            label="Mensaje"
+            placeholder="Escriba un mensaje"
+            type="text"
+            required="false"
+            asterisk=""
+            size="lg"
+        />
+        <input type="text" style="opacity: 0;" class="api-inpt" />
+        <label class="form__cc">
+            <Checkbox />
+            He leído y acepto la política y privacidad
+        </label>
+        <div class="form__bc">
+            <SendBtn />
+        </div>
+        <form></form>
+    </form>
+
+    <style lang="scss">
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            &__title {
+                margin-bottom: 40px;
+                text-align: center;
+                font-size: clamp(56px, 4vw, 90px);
+            }
+
+            &__btn {
+                font-family: "Space Grotesk Variable", sans-serif;
+                margin-bottom: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                font-size: 23px;
+                font-weight: bold;
+                color: #000;
+                background-color: #fff;
+                width: 250px;
+                padding: 20px;
+                border-radius: 13px;
+                box-shadow: 0px 0px 30px 5px #fff;
+                transition: all 0.5s;
+
+                &__icon {
+                    transition: all 0.5s;
+                    color: #000;
+                }
+
+                &:hover {
+                    box-shadow: 0px 0px 30px 5px #333;
+                    background-color: #000;
+                    color: #fff;
+                }
+
+                &:hover &__icon {
+                    color: #fff;
+                }
+            }
+        }
+    </style>
+
+    <style lang="scss">
+        .form {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            &__cc {
+                color: #fff;
+                display: flex;
+                width: 600px;
+                margin-top: 30px;
+            }
+
+            &__bc {
+                display: flex;
+                width: 600px;
+                margin-top: 30px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .form {
+                &__cc,
+                &__bc {
+                    width: 85vw;
+                }
+            }
+        }
+    </style>
 </section>
 
-<style lang="scss">
-    .section{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: rgb(0,0,0);
-        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(195,94,94,1) 100%);
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const userName = document.querySelector(
+            "body > main > section:nth-child(11) > form > div:nth-child(1) > input",
+        );
+        const email = document.querySelector(
+            "body > main > section:nth-child(11) > form > div:nth-child(2) > input",
+        );
+        const msg = document.querySelector(
+            "body > main > section:nth-child(11) > form > div:nth-child(3) > textarea",
+        );
+        const sendBtn = document.querySelector(
+            "body > main > section:nth-child(11) > form > div.form__bc > button",
+        );
 
-        &__title{
-            margin-bottom: 40px;
-            text-align: center;
-            font-size: clamp(56px, 4vw, 90px);
-        }
-
-        &__btn{
-            font-family: 'Space Grotesk Variable', sans-serif;
-            margin-bottom: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            font-size: 23px;
-            font-weight: bold;
-            color: #000;
-            background-color: #fff;
-            width: 250px;
-            padding: 20px;
-            border-radius: 13px;
-            box-shadow: 0px 0px 30px 5px #fff;
-            transition: all .5s;
-
-            &__icon{
-                transition: all .5s;
-                color: #000;
+        sendBtn.addEventListener("click", async () => {
+            try {
+                const res = await fetch("/api/sendmail.json", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        userName: userName.value,
+                        email: email.value,
+                        msg: msg.value,
+                    }),
+                });
+                const data = await res.json();
+                console.log(data);
+            } catch (err) {
+                console.log(err);
             }
+        });
+    });
 
-            &:hover{
-                box-shadow: 0px 0px 30px 5px #333;
-                background-color: #000;
-                color: #fff;
-            }
+    document.addEventListener("astro:page-load", () => {
+        const userName = document.querySelector("body > div.b > main > section:nth-child(11) > form > div:nth-child(1) > input")
+        const email = document.querySelector(
+            "body > div.b >  main > section:nth-child(11) > form > div:nth-child(2) > input",
+        );
+        const msg = document.querySelector(
+            "body > div.b > main > section:nth-child(11) > form > div:nth-child(3) > textarea",
+        );
+        const sendBtn = document.querySelector(
+            "body > div.b > main > section:nth-child(11) > form > div.form__bc > button",
+        );
 
-            &:hover &__icon{
-                color: #fff;
+        sendBtn.addEventListener("click", async () => {
+            try {
+                const res = await fetch("/api/sendmail.json", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        userName: userName.value,
+                        email: email.value,
+                        msg: msg.value,
+                    }),
+                });
+                const data = await res.json();
+                console.log(data);
+            } catch (err) {
+                console.log(err);
             }
-        }
-    }
-</style>
+        });
+    });
+</script>

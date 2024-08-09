@@ -3,10 +3,10 @@ import Rectangle1 from "../../../assets/Rectangle-4.png";
 ---
 
 <section class="section">
-    <img src={Rectangle1.src} alt="PymeWebTeam" class="section__rectangle">
+    <!-- <img src={Rectangle1.src} alt="PymeWebTeam" class="section__rectangle"> -->
     <h1 class="section__title">¿Por qué con nosotros?</h1>
     <article class="section__island-container">
-        <h2 class="section__island-container__subtitle">¿Tienes preguntas? Pregúntaselo a <a href="/ia" class="section__island-container__subtitle__link">nuestra IA</a> o ponte en <a class="section__island-container__subtitle__link">contacto con nosotros</a></h2>
+        <h2 class="section__island-container__subtitle">¿Tienes preguntas? Pregúntaselo a <a href="/ia" class="section__island-container__subtitle__link">nuestra IA</a> o ponte en <a class="section__island-container__subtitle__link" href="https://ha93i5uxhet.typeform.com/to/dT6gC5kT" target="_blank" >contacto con nosotros</a></h2>
         <div class="section__island-container__change-container">
             <i class="fa-solid fa-arrow-left section__island-container__change-container__arrow" id="left-arrow"></i>
             <div class="section__island-container__change-container__box" id="phrase">Diseños personalizados y profesionales</div>
@@ -123,7 +123,7 @@ import Rectangle1 from "../../../assets/Rectangle-4.png";
 
 <script is:inline>
     document.addEventListener('DOMContentLoaded', function () {
-        const phrases = ["Hola", "Diseños personalizados y profesionales", "pituto", "Buenas", "Adios"];
+        const phrases = ["Diseños personalizados y profesionales", "Páginas web vendedoras", "Fama y prestigio", "Nuevos clientes asegurados"];
         let currentPhraseIndex = 1; // Index of the initial phrase
 
         // Get elements
@@ -151,4 +151,33 @@ import Rectangle1 from "../../../assets/Rectangle-4.png";
         // Initial phrase display
         updatePhrase();
     });
+    document.addEventListener('astro:page-load', () =>{
+        const phrases = ["Diseños personalizados y profesionales", "Páginas web vendedoras", "Fama y prestigio", "Nuevos clientes asegurados"];
+        let currentPhraseIndex = 1; // Index of the initial phrase
+
+        // Get elements
+        const leftArrow = document.getElementById('left-arrow');
+        const rightArrow = document.getElementById('right-arrow');
+        const phraseBox = document.getElementById('phrase');
+
+        // Function to update the phrase
+        function updatePhrase() {
+            phraseBox.innerText = phrases[currentPhraseIndex];
+        }
+
+        // Event listener for left arrow
+        leftArrow.addEventListener('click', function () {
+            currentPhraseIndex = (currentPhraseIndex === 0) ? phrases.length - 1 : currentPhraseIndex - 1;
+            updatePhrase();
+        });
+
+        // Event listener for right arrow
+        rightArrow.addEventListener('click', function () {
+            currentPhraseIndex = (currentPhraseIndex === phrases.length - 1) ? 0 : currentPhraseIndex + 1;
+            updatePhrase();
+        });
+
+        // Initial phrase display
+        updatePhrase();
+    })
 </script>

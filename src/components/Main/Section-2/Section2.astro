@@ -1,11 +1,12 @@
 ---
 import Mockup2 from "../../../assets/Mockup-2.png";
 import Rectangle1 from "../../../assets/Rectangle-1.png";
+import { Image } from "astro:assets";
 ---
 
 <section class="section">
     <article class="section__article section__article--1">
-        <img src={Mockup2.src} alt="PymeWebTeam" class="section__article__img">
+        <Image src={Mockup2} alt="PymeWebTeam" format="avif" class={"section__article__img"} />
     </article>
     <article class="section__article section__article--2">
         <h1 class="section__article__title">Quiénes somos</h1>
@@ -14,7 +15,7 @@ import Rectangle1 from "../../../assets/Rectangle-1.png";
             <br>
             <p class="section__article__text">Nuestra juventud es nuestra ventaja. Combinamos pasión, creatividad y conocimiento técnico con un compromiso inquebrantable hacia la satisfacción del cliente.</p>
         </div>
-        <img src={Rectangle1.src} alt="PymeWebTeam" class="section__rectangle">
+        <Image src={Rectangle1} alt="PymeWebTeam" format="avif" class={"section__rectangle"} />
     </article>
 </section>
 
@@ -81,6 +82,7 @@ import Rectangle1 from "../../../assets/Rectangle-1.png";
 
             &__img{
                 width: 80vw;
+                height: 200px;
             }
 
             &__title{

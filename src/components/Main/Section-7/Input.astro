@@ -1,0 +1,82 @@
+---
+const {
+    label,
+    placeholder,
+    type,
+    size = "sm",
+    required = true,
+    asterisk = "*",
+    tag,
+} = Astro.props;
+---
+
+<div class="inpt-container">
+    <label for="inpt-container__inpt" class="inpt-container__label"
+        >{label} <span class="inpt-container__label__a">{asterisk}</span></label
+    >
+    <input
+        type={type}
+        placeholder={placeholder}
+        class="inpt-container__inpt"
+        data-size={size}
+        required={required}
+        tabindex="0"
+    />
+</div>
+
+<style lang="scss">
+    [data-size="lg"] {
+        height: 30vh;
+    }
+
+    .inpt-container {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+
+        &__label {
+            margin-bottom: 20px;
+            color: #fff;
+
+            &__a {
+                color: #ff5c00;
+            }
+        }
+
+        &__inpt {
+            width: 600px;
+            border-radius: 10px;
+            padding: 13px;
+            border: 1px solid #525252;
+            outline: none;
+            /* From https://css.glass */
+            background: rgba(190, 190, 190, 0.12);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(190, 190, 190, 0.33);
+            color: #fff;
+            transition: all 0.5s;
+            font-family: 'Poppins';
+
+            &:focus {
+                box-shadow: 1px 1px 10px #f00;
+            }
+
+            &::placeholder {
+                font-weight: 600;
+                opacity: 0.6;
+                color: #ffffff;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .inpt-container {
+            &__inpt {
+                width: 85vw;
+            }
+        }
+    }
+</style>

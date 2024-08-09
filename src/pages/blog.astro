@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Entry from "../components/Blog/Entry.astro";
+import MiniPost from "../components/Blog/MiniPost.astro";
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
@@ -36,16 +37,10 @@ const posts = (await getCollection('blog')).sort(
             </article>
         </aside>
     </header>
-    <main>
-		{
+    <main class="main">
+        {
 			posts.map((post) => (
-				<li>
-					<a href={`${post.slug}`}>
-						<img width={720} height={360} src={post.data.heroImage} alt=""/>
-						<h4 class="title">{post.data.title}</h4>
-						<p class="description">{post.data.description}</p>
-					</a>
-				</li>
+                <MiniPost source={post.data.heroImage} title={post.data.title} subtitle={post.data.description} link={post.slug}></MiniPost>
 			))
 		}
 	</main>
@@ -109,6 +104,37 @@ const posts = (await getCollection('blog')).sort(
                     font-size: 16px;
                 }
             }
+        }
+    }
+
+    .main{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    @media only screen and (max-width: 480px){
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header{
+            margin-bottom: 200px;
+
+            &__content{
+                align-items: center;
+                flex-direction: column;
+
+                &__part{
+                    width: 90vw;
+                }
+            }
+        }
+
+        .main{
+            width: 90vw;
         }
     }
 </style>
