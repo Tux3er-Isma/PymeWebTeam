@@ -1,0 +1,55 @@
+---
+const { source, title, subtitle, link } = Astro.props;
+---
+
+<a class="box" href={link}>
+    <img src={source} alt="PymeWebTeam" class="box__img">
+    <div class="box__txt-container">
+        <h1 class="box__txt-container__title">{title}</h1>
+        <h2 class="box__txt-container__subtitle">{subtitle}</h2>
+    </div>
+</a>
+
+<style lang="scss">
+    .box{
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+
+        
+        &:visited{
+            text-decoration: none;
+        }
+
+        &__img{
+            height: 200px;
+            border-radius: 30px;
+            width: 100%;
+        }
+
+        &__txt-container{
+            text-decoration: none;
+            border-radius: 0px 0px 20px 20px;
+            position: relative;
+            bottom: 60px;
+            padding: 10px;
+            background-color: #101010;
+            font-family: 'Poppins', sans-serif;
+
+            &__title{
+                color: #fff;
+                font-size: 20px;
+
+                &:visited{
+                    color: #fff;
+                }
+            }
+
+            &__subtitle{
+                font-size: 12px;
+                color: #747474;
+            }
+        }
+    }
+</style>
