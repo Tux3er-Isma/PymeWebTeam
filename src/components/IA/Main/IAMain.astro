@@ -1,31 +1,50 @@
 ---
-import Card from "./Card.astro"
+import Card from "./Card.astro";
 ---
 
 <main class="main">
     <section class="main__section main__section--1">
         <div class="main__section__divider">
-            <Card title="Lorem Ipsum" subtitle="hola como estas me llamo osvaldo"></Card>
-            <Card title="Lorem Ipsum" subtitle="hola como estas me llamo osvaldo"></Card>
+            <Card
+                title="Lorem Ipsum"
+                subtitle="hola como estas me llamo osvaldo"
+            />
+            <Card
+                title="Lorem Ipsum"
+                subtitle="hola como estas me llamo osvaldo"
+            />
         </div>
         <div class="main__section__divider">
-            <Card title="Lorem Ipsum" subtitle="hola como estas me llamo osvaldo"></Card>
-            <Card title="Lorem Ipsum" subtitle="hola como estas me llamo osvaldo"></Card>
+            <Card
+                title="Lorem Ipsum"
+                subtitle="hola como estas me llamo osvaldo"
+            />
+            <Card
+                title="Lorem Ipsum"
+                subtitle="hola como estas me llamo osvaldo"
+            />
         </div>
     </section>
     <section class="main__chat-container"></section>
     <section class="main__section main__section--3">
         <div class="main__section__inpt-container">
-            <input type="text" placeholder="Pregunta algo..." class="main__section__inpt-container__inpt">
+            <input
+                type="text"
+                placeholder="Pregunta algo..."
+                class="main__section__inpt-container__inpt"
+            />
             <div class="main__section__inpt-container__icon-container">
-                <i class="fa-solid fa-paper-plane main__section__inpt-container__icon-container__icon"></i>
+                <i
+                    class="fa-solid fa-paper-plane main__section__inpt-container__icon-container__icon"
+                ></i>
             </div>
         </div>
+        <p class="result"></p>
     </section>
 </main>
 
 <style lang="scss">
-    .main{
+    .main {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -33,22 +52,22 @@ import Card from "./Card.astro"
         justify-content: flex-end;
         height: 75vh;
 
-        &__section{
+        &__section {
             gap: 10px;
             display: flex;
 
-            &__divider{
+            &__divider {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
             }
 
-            &__inpt-container{
+            &__inpt-container {
                 position: relative;
                 display: flex;
                 align-items: center;
 
-                &__inpt{
+                &__inpt {
                     background-color: transparent;
                     border: 1.4px solid #50545d;
                     width: 60vw;
@@ -58,13 +77,13 @@ import Card from "./Card.astro"
                     font-size: 18px;
                     color: #7d7d7d;
 
-                    &::placeholder{
+                    &::placeholder {
                         font-size: 18px;
                         color: #7d7d7d;
                     }
                 }
 
-                &__icon-container{
+                &__icon-container {
                     position: absolute;
                     right: 20px;
                     background-color: #50545d;
@@ -75,44 +94,41 @@ import Card from "./Card.astro"
                     align-items: center;
                     border-radius: 13px;
 
-                    &:hover{
+                    &:hover {
                         cursor: pointer;
                     }
 
-                    &__icon{
-                        transition: all .5s;
+                    &__icon {
+                        transition: all 0.5s;
                         color: #7d7d7d;
                         font-size: 25px;
                     }
                 }
             }
 
-            &--1{
+            &--1 {
                 position: fixed;
                 bottom: 150px;
             }
 
-            &--3{
+            &--3 {
                 width: 100vw;
                 display: flex;
                 justify-content: center;
                 position: fixed;
                 bottom: 0px;
-                border-top: .5px solid #333;
+                border-top: 0.5px solid #333;
                 padding: 20px;
                 box-shadow: 0px 0px 10px 0px #000;
             }
         }
     }
 
-    @media only screen and (min-width: 1900px){
-        .main{
-
-            &__section{
-
-                &__inpt-container{
-
-                    &__inpt{
+    @media only screen and (min-width: 1900px) {
+        .main {
+            &__section {
+                &__inpt-container {
+                    &__inpt {
                         width: 40vw;
                     }
                 }
@@ -120,16 +136,14 @@ import Card from "./Card.astro"
         }
     }
 
-    @media only screen and (max-width: 480px){
-        .main{
-
-            &__section{
+    @media only screen and (max-width: 480px) {
+        .main {
+            &__section {
                 flex-direction: column;
 
-                &__inpt-container{
-
-                    &__inpt{
-                        width: 100%
+                &__inpt-container {
+                    &__inpt {
+                        width: 100%;
                     }
                 }
             }
@@ -138,40 +152,47 @@ import Card from "./Card.astro"
 </style>
 
 <script is:inline>
-    const $inpt = document.querySelector('.main__section__inpt-container__inpt');
-    const $icon = document.querySelector('.main__section__inpt-container__icon-container__icon');
-    const $section1 = document.querySelector('.main__section--1');
+    const $inpt = document.querySelector(
+        ".main__section__inpt-container__inpt",
+    );
+    const $icon = document.querySelector(
+        ".main__section__inpt-container__icon-container__icon",
+    );
+    const $section1 = document.querySelector(".main__section--1");
 
     const chatMessagesArr = ["Hola"];
     const userMessagesArr = [];
 
-    $inpt.addEventListener('keyup', () =>{
-        if ($inpt.value != ''){
-            $icon.style.color = '#fff';
-            $icon.addEventListener('click', () =>{
-                $section1.style.display = 'none';
-            })
+    $inpt.addEventListener("keyup", () => {
+        if ($inpt.value != "") {
+            $icon.style.color = "#fff";
+            $icon.addEventListener("click", () => {
+                $section1.style.display = "none";
+            });
         } else {
-            $icon.style.color = '#7d7d7d';
+            $icon.style.color = "#7d7d7d";
         }
-    })
+    });
+    //sk-proj-0goC14DY4a3C7VWEUY1ST3BlbkFJf5WyyMB5gPfpNPkQQad9
+    let partA1 = "sk-proj-0goC14DY4a3C7VWEUY1ST3BlbkFJf5W";
+    let partA2 = "yyMB5gPfpNPk";
+    let partA3 = "QQad9";
 
-    let partA1 = "sk-proj-hSaYZUjqOdhpQ89uf2J0T3B"
-    let partA2 = "lbkFJaf9mrjYtXKXPWe"
-    let partA3 = "I5APDk";
+    key = "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";
 
-    key = "sk-proj-nkP3pPRL5OmqSSQ45nt6T3BlbkFJnRE6vGjl5KDAQgmLUtyp"
-
-    async function getBotMessage(){
-    const options = {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${key}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{role: "user", content: ` 
+    async function getBotMessage() {
+        const options = {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${key}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                model: "gpt-3.5-turbo",
+                messages: [
+                    {
+                        role: "user",
+                        content: ` 
 
             Eres un asistente de IA de una empresa llamada Pyme Web. Todas tus respuestas deben estar en formato MarkDown
 
@@ -241,48 +262,53 @@ import Card from "./Card.astro"
 
             Cuando lo creas necesario crea un formato de lista o esquema. Que quede más dinámico el resultado.
 
-           Reponde a esta oracion: ${$inpt.value}`}],
-            max_tokens: 500,
-            temperature: 0.5
-        })
+           Reponde a esta oracion: ${$inpt.value}`,
+                    },
+                ],
+                max_tokens: 500,
+                temperature: 0.5,
+            }),
+        };
+
+        try {
+            const response = await fetch(
+                "https://api.openai.com/v1/chat/completions",
+                options,
+            );
+            const data = await response.json();
+            console.log(data);
+            // setTimeout(() =>{
+            //     chatInpt.removeAttribute('readonly', false);
+            //     chatInpt.style.cursor = 'text';
+            // }, 500)
+            // chatInpt.style.cursor = 'not-allowed';
+            // loaderArr[loaderArr.length - 1].style.display = 'none';
+            // txt2Arr[txt2Arr.length - 1].style.display = 'block';
+            // let lettersTxt2Arr;
+            //     txt2Arr[txt2Arr.length - 1].innerHTML = data.choices[0].message.content;
+            //     let convertedTxt = converter.makeHtml(txt2Arr[txt2Arr.length - 1].innerHTML);
+            //     txt2Arr[txt2Arr.length - 1].innerHTML = convertedTxt;
+            //     lettersTxt2Arr = Array.from(txt2Arr[txt2Arr.length - 1].innerHTML);
+            // typingLength = lettersTxt2Arr.length;
+
+            // let currentCharIndex = 0;
+
+            // function typePhrase() {
+            //     if (currentCharIndex <= lettersTxt2Arr.length) {
+            //             txt2Arr[txt2Arr.length - 1].innerHTML = convertedTxt.substr(0, currentCharIndex);
+            //         currentCharIndex++;
+            //         setTimeout(typePhrase, 1); // Cambia el tiempo de escritura según tus preferencias
+            //     }
+            // }
+
+            // // Iniciar el efecto al cargar la página
+            // typePhrase();
+        } catch (err) {
+            console.error(err);
+        }
     }
 
-    try {
-        const response = await fetch('https://api.openai.com/v1/chat/completions', options)
-        const data = await response.json();
-        console.log(data);
-        // setTimeout(() =>{
-        //     chatInpt.removeAttribute('readonly', false);
-        //     chatInpt.style.cursor = 'text';
-        // }, 500)
-        // chatInpt.style.cursor = 'not-allowed';
-        // loaderArr[loaderArr.length - 1].style.display = 'none';
-        // txt2Arr[txt2Arr.length - 1].style.display = 'block';
-        // let lettersTxt2Arr;
-        //     txt2Arr[txt2Arr.length - 1].innerHTML = data.choices[0].message.content;
-        //     let convertedTxt = converter.makeHtml(txt2Arr[txt2Arr.length - 1].innerHTML);
-        //     txt2Arr[txt2Arr.length - 1].innerHTML = convertedTxt;
-        //     lettersTxt2Arr = Array.from(txt2Arr[txt2Arr.length - 1].innerHTML);
-        // typingLength = lettersTxt2Arr.length;
-
-
-        // let currentCharIndex = 0;
-
-        // function typePhrase() {
-        //     if (currentCharIndex <= lettersTxt2Arr.length) {
-        //             txt2Arr[txt2Arr.length - 1].innerHTML = convertedTxt.substr(0, currentCharIndex);
-        //         currentCharIndex++;
-        //         setTimeout(typePhrase, 1); // Cambia el tiempo de escritura según tus preferencias
-        //     }
-        // }
-
-        // // Iniciar el efecto al cargar la página
-        // typePhrase();
-
-    }
-
-    catch (err){
-        console.error(err)
-    }
-    }
+    $icon.addEventListener('click', () =>{
+        getBotMessage();
+    })
 </script>
