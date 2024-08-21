@@ -15,8 +15,13 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Página Web de PymeWebTeam" />
+		<meta name="keywords" content="PymeWebTeam, Web, Negocios, Digitalización, Negocio, Pyme, Pymes, Empresas, Serivicios Web">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="canonical" href="https://pymeweb.team"/>
+		<meta property="og:locale" content="es_ES">
+		<meta property="og:title" content="PymeWebTeam">
+		<meta property="og:site_name" content="PymeWebTeam">
 		<link rel="icon" type="image/svg+xml" href={Logo.src} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="view-transiton" content="same-origin" />
@@ -1854,8 +1859,9 @@ const { title } = Astro.props;
 			integrity="sha512-b4rL1m5b76KrUhDkj2Vf14Y0l1NtbiNXwV+SzOzLGv6Tz1roJHa70yr8RmTUswrauu2Wgb/xBJPR8v80pQYKtQ=="
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"></script>
-		<script src="https://unpkg.com/scrollreveal" is:raw></script>
+			<script src="https://unpkg.com/scrollreveal"></script>
 	</head>
+
 	<body transition:persist>
 		<slot />
 		<script>
@@ -1883,6 +1889,7 @@ const { title } = Astro.props;
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+		scroll-behavior: smooth;
 	}
 
 	::selection{
@@ -1897,6 +1904,7 @@ const { title } = Astro.props;
 		font-family: "Space Grotesk Variable", sans-serif;
 		font-weight: 400;
 		letter-spacing: -6%;
+		scroll-behavior: smooth;
 
 		&::-webkit-scrollbar {
 			width: 7px;
@@ -1922,6 +1930,12 @@ const { title } = Astro.props;
 			cursor: pointer;
 		}
 	}
+
+	// a{
+	// 	display: flex;
+	// 	justify-content: center;
+	// 	align-items: center;
+	// }
 
 	.section {
 		margin-top: 200px;
@@ -1981,6 +1995,25 @@ const { title } = Astro.props;
 		height: 100%;
 		width: 100%;
 		z-index: -1;
+	}
+
+	@keyframes left{
+		from {
+			transform: translateX(-100px)
+		}
+		to{
+			transform: translateX(0px)
+		}
+	}
+
+	.left{
+		position: relative;
+		left: -100px;
+		transition: all 1s;
+	}
+
+	.left-s{
+		left: 0px;
 	}
 </style>
 
@@ -3379,4 +3412,170 @@ const { title } = Astro.props;
 			retina_detect: true,
 		});
 	}
+</script>
+
+<script is:inline>
+	// document.addEventListener("DOMContentLoaded", () => {
+	// 	window.sr = ScrollReveal();
+
+	// 	const workContainerArr = document.querySelector(
+	// 		".section__work-container",
+	// 	).childNodes;
+	// 	const container1 = workContainerArr[1].childNodes[1];
+	// 	const container2 = workContainerArr[1].childNodes[5];
+	// 	const container3 = workContainerArr[1].childNodes[9];
+	// 	const arrow1 = workContainerArr[1].childNodes[3];
+	// 	const arrow2 = workContainerArr[1].childNodes[7];
+	// 	const arrow3 = workContainerArr[3].childNodes[5];
+	// 	const container4 = workContainerArr[5].childNodes[1];
+	// 	const container5 = workContainerArr[5].childNodes[5];
+	// 	const container6 = workContainerArr[5].childNodes[9];
+	// 	const arrow4 = workContainerArr[5].childNodes[3];
+	// 	const arrow5 = workContainerArr[5].childNodes[7];
+	// 	console.log(workContainerArr);
+	// 	sr.reveal(container1, {
+	// 		origin: "left",
+	// 		distance: "15px",
+	// 		duration: 500,
+	// 	});
+	// 	sr.reveal(arrow1, {
+	// 		origin: "left",
+	// 		distance: "100px",
+	// 		duration: 600,
+	// 	});
+	// 	sr.reveal(container2, {
+	// 		origin: "left",
+	// 		distance: "100px",
+	// 		duration: 700,
+	// 	});
+	// 	sr.reveal(arrow2, {
+	// 		origin: "left",
+	// 		distance: "100px",
+	// 		duration: 800,
+	// 	});
+	// 	sr.reveal(container3, {
+	// 		origin: "left",
+	// 		distance: "100px",
+	// 		duration: 900,
+	// 	});
+	// 	sr.reveal(arrow3, {
+	// 		origin: "left",
+	// 		distance: "30px",
+	// 		duration: 1000,
+	// 	});
+	// 	sr.reveal(container4, {
+	// 		origin: "right",
+	// 		distance: "100px",
+	// 		duration: 1100,
+	// 	});
+	// 	sr.reveal(arrow4, {
+	// 		origin: "left",
+	// 		distance: "100px",
+	// 		duration: 1200,
+	// 	});
+	// 	sr.reveal(container5, {
+	// 		origin: "right",
+	// 		distance: "100px",
+	// 		duration: 1300,
+	// 	});
+	// 	sr.reveal(arrow5, {
+	// 		origin: "left",
+	// 		distance: "100px",
+	// 		duration: 1400,
+	// 	});
+	// 	sr.reveal(container6, {
+	// 		origin: "right",
+	// 		distance: "100px",
+	// 		duration: 1500,
+	// 	});
+
+	// 	if (window.screen.availWidth <= 480) {
+	// 		sr.reveal(container1, {
+	// 			origin: "top",
+	// 			distance: "15px",
+	// 			duration: 500,
+	// 		});
+	// 		sr.reveal(arrow1, {
+	// 			origin: "left",
+	// 			distance: "100px",
+	// 			duration: 600,
+	// 		});
+	// 		sr.reveal(container2, {
+	// 			origin: "top",
+	// 			distance: "100px",
+	// 			duration: 700,
+	// 		});
+	// 		sr.reveal(arrow2, {
+	// 			origin: "left",
+	// 			distance: "100px",
+	// 			duration: 800,
+	// 		});
+	// 		sr.reveal(container3, {
+	// 			origin: "top",
+	// 			distance: "100px",
+	// 			duration: 900,
+	// 		});
+	// 		sr.reveal(arrow3, {
+	// 			origin: "left",
+	// 			distance: "30px",
+	// 			duration: 1000,
+	// 		});
+	// 		sr.reveal(container4, {
+	// 			origin: "top",
+	// 			distance: "100px",
+	// 			duration: 1100,
+	// 		});
+	// 		sr.reveal(arrow4, {
+	// 			origin: "left",
+	// 			distance: "100px",
+	// 			duration: 1200,
+	// 		});
+	// 		sr.reveal(container5, {
+	// 			origin: "top",
+	// 			distance: "100px",
+	// 			duration: 1300,
+	// 		});
+	// 		sr.reveal(arrow5, {
+	// 			origin: "left",
+	// 			distance: "100px",
+	// 			duration: 1400,
+	// 		});
+	// 		sr.reveal(container6, {
+	// 			origin: "top",
+	// 			distance: "100px",
+	// 			duration: 1500,
+	// 		});
+	// 	}
+	// });
+
+	const workContainerArr = document.querySelector('.section__work-container').children;
+	const firstDivider = workContainerArr[0].children;
+	const container1 = firstDivider[0];
+	const arrow1 = firstDivider[1];
+	const container2 = firstDivider[2];
+	const arrow2 = firstDivider[3];
+	const container3 = firstDivider[4];
+	const secondDivider = workContainerArr[1].children;
+	const arrow3 = secondDivider[2];
+	const thirdDivider = workContainerArr[2].children;
+	const container4 = thirdDivider[4];
+	const arrow4 = thirdDivider[3];
+	const container5 = thirdDivider[2];
+	const arrow5 = thirdDivider[1];
+	const container6 = thirdDivider[0];
+
+	const observer = new IntersectionObserver((entries) =>{
+		entries.forEach((entry) =>{
+			console.log(entry)
+			if (entry.isIntersecting) {
+				const element = entry.target;
+				let direction = element.classList[1];
+				if (direction == 'left'){
+					element.classList.add('left-s');
+				}
+			} else {
+			}
+		})
+	})
+
 </script>
