@@ -1,10 +1,12 @@
 ---
 import { Image } from "astro:assets";
-const { source, numPh, title, order, imgNum, link } = Astro.props;
+const { source, numPh, title, order, imgNum, link, titleG } = Astro.props;
+import ImgLoader from "../../Loader/ImgLoader.astro";
 ---
 
 <div class="gallery-link">
-    <a class="picture" data-small={imgNum} href={link} target="_blank" >
+    <a class="picture" href={link} target="_blank" >
+        <ImgLoader></ImgLoader>
         <Image
             src={source}
             alt="PymeWebTeam"
@@ -16,8 +18,8 @@ const { source, numPh, title, order, imgNum, link } = Astro.props;
         />
         <div class="picture__overlay"></div>
         <div class="picture__text-container">
-            <h4 class="picture__text-container__subtitle">{numPh} fotos</h4>
-            <h3 class="picture__text-container__title">{title}</h3>
+            <h4 class="picture__text-container__subtitle">{numPh}</h4>
+            <h3 class="picture__text-container__title--g">{titleG}</h3>
         </div>
     </a>
 </div>
@@ -101,6 +103,10 @@ const { source, numPh, title, order, imgNum, link } = Astro.props;
             &__title {
                 font-weight: lighter;
                 font-size: 18px;
+
+                &--g{
+                    text-shadow: 10px 10px 1px 1px #000000;
+                }
             }
         }
     }

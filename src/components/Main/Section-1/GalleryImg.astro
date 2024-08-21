@@ -1,13 +1,15 @@
 ---
 import { Image } from "astro:assets";
-const { source, numPh, title, order, imgNum, imgsArr } = Astro.props;
+const { source, numPh, title, order, imgNum, imgsArr, titleG } = Astro.props;
+import ImgLoader from "../../Loader/ImgLoader.astro";
 ---
 
 <div class="gallery">
     {imgsArr.map((source, index) =>(
         <a href={source}></a>
     ))}
-    <a class="picture" data-small={imgNum} href={source.src}>
+    <a class="picture" href={source.src}>
+        <ImgLoader></ImgLoader>
         <Image
             src={source}
             alt="PymeWebTeam"
@@ -21,6 +23,7 @@ const { source, numPh, title, order, imgNum, imgsArr } = Astro.props;
         <div class="picture__text-container">
             <h4 class="picture__text-container__subtitle">{numPh} fotos</h4>
             <h3 class="picture__text-container__title">{title}</h3>
+            <h3 class="picture__text-container__title--g">{titleG}</h3>
         </div>
     </a>
 </div>
@@ -104,6 +107,10 @@ const { source, numPh, title, order, imgNum, imgsArr } = Astro.props;
             &__title {
                 font-weight: lighter;
                 font-size: 18px;
+
+                &--g{
+                    text-shadow: 1px 1px 1px 1px #8b8b8b;
+                }
             }
         }
     }

@@ -44,14 +44,20 @@ import four_Img1 from "../../../assets/instagram-posts/img-1.png";
 import four_Img2 from "../../../assets/instagram-posts/img-2.png";
 import four_Img3 from "../../../assets/instagram-posts/img-3.png";
 import four_Img4 from "../../../assets/instagram-posts/img-4.png";
+
+//Oro Patrimonio
+import five_Img1 from "../../../assets/oropatrimonio/img-1.png";
+
+//Mineria BTC
+import six_Img1 from "../../../assets/mineriabtc/img-1.png";
 ---
 
-<section class="section section--1">
+<section class="section section--1" id="s1">
     <article class="section__gallery">
         <div class="section__gallery__marquee">
             <GalleryImg
                 source={one_Img7}
-                numPh={"3"}
+                numPh={"8"}
                 title={"diseños web"}
                 order="one"
                 imgNum="1"
@@ -67,14 +73,14 @@ import four_Img4 from "../../../assets/instagram-posts/img-4.png";
             />
             <GalleryLink
                 source={two_Img1}
-                numPh={"3"}
-                title={"posters"}
+                numPh={"22 fotos"}
+                titleG={"posters"}
                 imgNum="2"
                 link="https://drive.google.com/drive/folders/16FZgBAkKRx3MjX4fRyrNF49Bwr6VC0Fb?usp=sharing"
             />
             <GalleryImg
                 source={three_Img1}
-                numPh={"5"}
+                numPh={"23"}
                 title={"variación"}
                 imgNum="3"
                 imgsArr={[
@@ -146,38 +152,38 @@ import four_Img4 from "../../../assets/instagram-posts/img-4.png";
         <div class="section__gallery__marquee section__gallery__marquee--right">
             <GalleryImg
                 source={four_Img1}
-                numPh={"3"}
-                title={"posts instagram"}
+                numPh={"4"}
+                titleG={"posts instagram"}
                 imgNum="4"
                 imgsArr={[four_Img2.src, four_Img3.src, four_Img4.src]}
             />
             <GalleryLink
-                source={one_Img6}
-                numPh={"3"}
-                title={"oro patrimonio"}
+                source={five_Img1}
+                numPh={"página web"}
+                titleG={"oro patrimonio"}
                 imgNum="2"
                 link="https://oropatrimonio.com"
             />
             <div class="section__gallery__marquee__divider">
                 <GalleryImg
                     source={four_Img4}
-                    numPh={"3"}
-                    title={"posts instagram"}
+                    numPh={"4"}
+                    titleG={"posts instagram"}
                     imgNum="4"
                     imgsArr={[four_Img2.src, four_Img3.src, four_Img4.src]}
                 />
                 <GalleryLink
-                    source={one_Img6}
-                    numPh={"3"}
-                    title={"minebest"}
+                    source={five_Img1}
+                    numPh={"página web"}
+                    titleG={"oro patrimonio"}
                     imgNum="2"
-                    link="https://mineriabtc.com"
+                    link="https://oropatrimonio.com"
                 />
             </div>
             <GalleryLink
-                source={one_Img6}
-                numPh={"3"}
-                title={"minebest"}
+                source={six_Img1}
+                numPh={"página web"}
+                titleG={"mineriabtc"}
                 imgNum="2"
                 link="https://mineriabtc.com"
             />
@@ -258,82 +264,79 @@ import four_Img4 from "../../../assets/instagram-posts/img-4.png";
 </style>
 
 <script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-        const imagesArr = document.querySelector(
-            ".section__gallery__marquee",
-        ).children;
-        const imagesArr2 = document.querySelector(
-            ".section__gallery__marquee--right",
-        ).children;
-        const $image2 = imagesArr[1];
-        const $image3 = imagesArr[2];
-        const $image4 = imagesArr2[0];
-        const $image5 = imagesArr2[1];
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     const imagesArr = document.querySelector(
+    //         ".section__gallery__marquee",
+    //     ).children;
+    //     const imagesArr2 = document.querySelector(
+    //         ".section__gallery__marquee--right",
+    //     ).children;
+    //     const $image2 = imagesArr[1];
+    //     const $image3 = imagesArr[2];
+    //     const $image4 = imagesArr2[0];
+    //     const $image5 = imagesArr2[1];
 
-        let imgArr = [];
-        const $blurContainerArr = document.querySelectorAll(".picture");
-        $blurContainerArr.forEach((picture) => {
-            imgArr.push(picture.children[0]);
-        });
+    //     let imgArr = [];
+    //     const $blurContainerArr = document.querySelectorAll(".picture");
+    //     $blurContainerArr.forEach((picture) => {
+    //         imgArr.push(picture.children[0]);
+    //     });
 
-        const loaded = (img) => {
-            img.style.opacity = 1;
-        };
+    //     const loaded = (img) => {
+    //         img.style.opacity = 1;
+    //     };
 
-        imgArr.forEach((img) => {
-            if (img.complete) {
-                loaded(img);
-            } else {
-                img.addEventListener("load", () => {
-                    loaded(img);
-                });
-            }
-        });
+    //     imgArr.forEach((img) => {
+    //         if (img.complete) {
+    //             loaded(img);
+    //         } else {
+    //             img.addEventListener("load", () => {
+    //                 loaded(img);
+    //             });
+    //         }
+    //     });
 
-        if (window.screen.availWidth < 480) {
-            $image2.style.display = "none";
-            $image3.style.display = "none";
-            $image4.style.display = "none";
-            $image5.style.display = "none";
+    //     if (window.screen.availWidth < 480) {
+    //         $image2.style.display = "none";
+    //         $image3.style.display = "none";
+    //         $image4.style.display = "none";
+    //         $image5.style.display = "none";
+    //     }
+    // });
+    const imagesArr1 = document.querySelectorAll('.section__gallery__marquee')[0];
+    const imagesArr2 = document.querySelectorAll('.section__gallery__marquee')[1];
+    const blurContainerArr = document.querySelectorAll('.picture');
+    let loaderArr = [];
+    let imgArr = [];
+    blurContainerArr.forEach((picture) =>{
+        loaderArr.push(picture.children[0])
+        imgArr.push(picture.children[1]);
+    })
+
+    const loaded = (img, loader) =>{
+        img.style.opacity = 1;
+        loader.style.display = 'none';
+    }
+
+    for (let i = 0; i < imgArr.length; i++){
+        if (imgArr[i].complete) {
+            loaded(imgArr[i], loaderArr[i])
+        } else {
+            imgArr[i].addEventListener("load", () =>{
+                loaded(imgArr[i], loaderArr[i])
+            })
         }
-    });
-    document.addEventListener("astro:page-load", () => {
-        const imagesArr = document.querySelector(
-            ".section__gallery__marquee",
-        ).childNodes;
-        const imagesArr2 = document.querySelector(
-            ".section__gallery__marquee--right",
-        ).childNodes;
-        const $image1 = imagesArr[3];
-        const $image2 = imagesArr[5];
-        const $image3 = imagesArr2[1];
-        const $image4 = imagesArr2[3];
+    }
 
-        let imgArr = [];
-        const $blurContainerArr = document.querySelectorAll(".picture");
-        $blurContainerArr.forEach((picture) => {
-            imgArr.push(picture.children[0]);
-        });
+    const image2 = imagesArr1.children[1];
+    const image3 = imagesArr1.children[2];
+    const image4 = imagesArr2.children[0];
+    const image5 = imagesArr2.children[1];
+    let deletedImgMobile = [image2, image3, image4, image5];
 
-        const loaded = (img) => {
-            img.style.opacity = 1;
-        };
-
-        imgArr.forEach((img) => {
-            if (img.complete) {
-                loaded(img);
-            } else {
-                img.addEventListener("load", () => {
-                    loaded(img);
-                });
-            }
-        });
-
-        if (window.screen.availWidth <= 480) {
-            $image1.style.display = "none";
-            $image2.style.display = "none";
-            $image3.style.display = "none";
-            $image4.style.display = "none";
-        }
-    });
+    if (window.screen.availWidth <= 480){
+        deletedImgMobile.forEach((img) =>{
+            img.style.display = 'none';
+        })
+    }
 </script>
