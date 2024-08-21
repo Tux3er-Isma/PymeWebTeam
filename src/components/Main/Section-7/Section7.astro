@@ -5,7 +5,7 @@ import Checkbox from "./Checkbox.astro";
 import SendBtn from "./SendBtn.astro";
 ---
 
-<section class="section">
+<section class="section" id="s7">
     <h1 class="section__title">Eleva tu presencia online<br /> ya.</h1>
     <!-- <button type="button" class="section__btn">¡Estoy List@! <i class="fa-solid fa-circle-check section__btn__icon"></i></button> -->
 
@@ -111,19 +111,10 @@ import SendBtn from "./SendBtn.astro";
 </section>
 
 <script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-        const userName = document.querySelector(
-            "body > main > section:nth-child(11) > form > div:nth-child(1) > input",
-        );
-        const email = document.querySelector(
-            "body > main > section:nth-child(11) > form > div:nth-child(2) > input",
-        );
-        const msg = document.querySelector(
-            "body > main > section:nth-child(11) > form > div:nth-child(3) > textarea",
-        );
-        const sendBtn = document.querySelector(
-            "body > main > section:nth-child(11) > form > div.form__bc > button",
-        );
+        const nameAndSurname = document.querySelector("#s7 > form > div:nth-child(1) > input")
+        const email = document.querySelector("#s7 > form > div:nth-child(2) > input")
+        const msg = document.querySelector("#s7 > form > div:nth-child(3) > textarea")
+        const sendBtn = document.getElementById('send-btn');
 
         sendBtn.addEventListener("click", async () => {
             try {
@@ -133,7 +124,7 @@ import SendBtn from "./SendBtn.astro";
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        userName: userName.value,
+                        userName: nameAndSurname.value,
                         email: email.value,
                         msg: msg.value,
                     }),
@@ -144,38 +135,4 @@ import SendBtn from "./SendBtn.astro";
                 console.log(err);
             }
         });
-    });
-
-    document.addEventListener("astro:page-load", () => {
-        const userName = document.querySelector("body > div.b > main > section:nth-child(11) > form > div:nth-child(1) > input")
-        const email = document.querySelector(
-            "body > div.b >  main > section:nth-child(11) > form > div:nth-child(2) > input",
-        );
-        const msg = document.querySelector(
-            "body > div.b > main > section:nth-child(11) > form > div:nth-child(3) > textarea",
-        );
-        const sendBtn = document.querySelector(
-            "body > div.b > main > section:nth-child(11) > form > div.form__bc > button",
-        );
-
-        sendBtn.addEventListener("click", async () => {
-            try {
-                const res = await fetch("/api/sendmail.json", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        userName: userName.value,
-                        email: email.value,
-                        msg: msg.value,
-                    }),
-                });
-                const data = await res.json();
-                console.log(data);
-            } catch (err) {
-                console.log(err);
-            }
-        });
-    });
 </script>
