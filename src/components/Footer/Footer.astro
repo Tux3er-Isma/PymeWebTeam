@@ -1,25 +1,26 @@
 ---
-
+import img1 from "../../assets/footer/pyme1.png"
+import img2 from "../../assets/footer/pyme2.png"
 ---
 
 <footer class="footer">
     <aside class="footer__aside">
         <h2 class="footer__aside__title">Contacta con nosotros</h2>
-        <a class="footer__aside__subtitle">¿Tienes alguna duda o consulta?</a>
-        <button type="button" class="footer__aside__btn footer__aside__btn--1">Contactar</button>
+        <a href="#s7" class="footer__aside__subtitle">¿Tienes alguna duda o consulta?</a>
+        <a href="#s7"><button type="button" class="footer__aside__btn footer__aside__btn--1">Contactar</button></a>
     </aside>
     <aside class="footer__aside">
         <h2 class="footer__aside__title">Índice</h2>
-        <a class="footer__aside__subtitle">Galería</a>
-        <a class="footer__aside__subtitle">Quíenes somos</a>
-        <a class="footer__aside__subtitle">Qué hacemos</a>
-        <a class="footer__aside__subtitle">Por qué con nosotros</a>
+        <a  href="#s1" class="footer__aside__subtitle">Galería</a>
+        <a  href="#s2" class="footer__aside__subtitle">Quíenes somos</a>
+        <a  href="#s3" class="footer__aside__subtitle">Qué hacemos</a>
+        <a  href="#s5" class="footer__aside__subtitle">Por qué con nosotros</a>
     </aside>
     <aside class="footer__aside">
-        <h2 class="footer__aside__title">Recibe las noticias y blogs al instante</h2>
-        <div>
-            <input type="text" placeholder="Introduce tu email" class="footer__aside__inpt">
-            <button type="submit" class="footer__aside__btn">Aceptar</button>
+        <h2 class="footer__aside__title">Pymes que confían en nosotros</h2>
+        <div class="footer__aside__img-container">
+            <img src={img1.src} alt="Oro Patrimonio" class="footer__aside__img-container__img">
+            <img src={img2.src} alt="Mineria BTC" class="footer__aside__img-container__img">
         </div>
     </aside>
 </footer>
@@ -90,6 +91,17 @@
                 opacity: .5;
                     color: #fff;
                }
+            }
+
+            &__img-container{
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                &__img{
+                    width: 200px;
+                }
             }
         }
     }
