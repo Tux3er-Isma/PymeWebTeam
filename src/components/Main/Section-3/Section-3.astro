@@ -6,7 +6,7 @@ import ImgSection3_3 from "../../../assets/ImgSection3_3.png";
 import Rectangle1 from "../../../assets/Rectangle-2.png";
 ---
 
-<section class="section section--3">
+<section class="section section--3" id="s3">
     <article class="section__article section__article--1">
         <div class="section__article__header">
             <h1 class="section__article__title">Qué hacemos</h1>
@@ -29,11 +29,10 @@ import Rectangle1 from "../../../assets/Rectangle-2.png";
                 Copy Writing
             </li>
         </ul>
-        <button type="button" class="section__article__btn"
-            >ver presentación <i
+        <a href="#s7"><button type="button" class="section__article__btn"
+            >estoy listo <i
                 class="fa-solid fa-circle-arrow-right section__article__btn__icon"
-            ></i></button
-        >
+            ></i></button></a>
         <img
             src={Rectangle1.src}
             alt="PymeWebTeam"
@@ -200,9 +199,10 @@ import Rectangle1 from "../../../assets/Rectangle-2.png";
 
                 &--2 {
                     padding: 0;
-
                     height: 45vh;
                     width: 90vw;
+                    background: transparent;
+                    border: none;
                 }
 
                 &__header {
@@ -210,7 +210,8 @@ import Rectangle1 from "../../../assets/Rectangle-2.png";
                 }
 
                 &__img {
-                    width: 100vw;
+                    width: 90vw;
+                    object-fit: contain;
                 }
 
                 &__btn {
@@ -221,7 +222,7 @@ import Rectangle1 from "../../../assets/Rectangle-2.png";
         }
     }
 
-    @media only screen and (min-width: 1900px) {
+    @media only screen and (min-width: 1600px) {
         .section {
             align-items: center;
 
@@ -231,7 +232,7 @@ import Rectangle1 from "../../../assets/Rectangle-2.png";
                 }
 
                 &--2 {
-                    height: 50vh;
+                    height: 60vh;
                 }
             }
         }
