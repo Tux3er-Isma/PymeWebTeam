@@ -8,8 +8,8 @@ import Done from "../../assets/Done.png";
         <img src={LogoDark.src} alt="Logo" class="nav__logo-container__logo">
     </section>
     <section class="nav__btn-container">
-        <button type="button" class="nav__btn-container__btn nav__btn-container__btn--1">Explorar</button>
-        <button type="button" class="nav__btn-container__btn nav__btn-container__btn--2">¡Estoy List@! <i class="fa-solid fa-circle-check nav__btn-container__icon"></i></button>
+        <a href="#s1" class="nav__btn-container__link"><button type="button" class="nav__btn-container__btn nav__btn-container__btn--1">Explorar</button></a>
+        <a href="#s7"><button type="button" class="nav__btn-container__btn nav__btn-container__btn--2">¡Estoy List@! <i class="fa-solid fa-circle-check nav__btn-container__icon"></i></button></a>
     </section>
 </nav>
 
@@ -37,6 +37,12 @@ import Done from "../../assets/Done.png";
 
         &__btn-container{
             display: flex;
+
+            &__link{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
 
 
             &__btn{
