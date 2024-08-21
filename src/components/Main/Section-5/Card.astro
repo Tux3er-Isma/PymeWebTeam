@@ -1,0 +1,134 @@
+---
+import { Image } from "astro:assets";
+const { title, icon, txt, iconSize } = Astro.props;
+---
+
+<div class="card">
+    <header class="card__header">
+        <h1 class="card__header__title">{title}</h1>
+        <Image
+            src={icon}
+            alt="PymeWebTeam"
+            class={"card__header__icon"}
+            aria-hidden={true}
+            loading={"lazy"}
+            quality={"mid"}
+            data-size={iconSize}
+        />
+    </header>
+    <main class="card__main">
+        <p class="card__main__txt">{txt}</p>
+    </main>
+</div>
+
+<style lang="scss">
+    .card {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        height: 28vw;
+        /* From https://css.glass */
+        background: rgba(190, 190, 190, 0.12);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(190, 190, 190, 0.33);
+
+        &__header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            height: 100px;
+
+            &__title {
+                width: 50%;
+                font-size: 30px;
+            }
+
+            &__icon {
+                height: 80px;
+                width: fit-content;
+                object-fit: contain;
+            }
+        }
+
+        &__main {
+            display: flex;
+            justify-content: center;
+
+            &__txt {
+                width: 88%;
+                font-family: "Poppins";
+                color: #b6b6b6;
+            }
+        }
+    }
+
+    [data-size="lg"] {
+        height: 100px;
+    }
+
+    @media only screen and (max-width: 480px) {
+        .card {
+            width: 80vw;
+            height: 60vh;
+
+            &__header {
+                margin-bottom: 100px;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+
+                &__title {
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .card {
+
+            &__header {
+                margin-top: 50px;
+                margin-bottom: 50px;
+
+                &__title {
+                    width: 55%;
+                    font-size: 45px;
+                }
+
+                &__icon {
+                    height: 100px;
+                    width: fit-content;
+                    object-fit: contain;
+                }
+            }
+
+            &__main {
+                display: flex;
+                justify-content: center;
+
+                &__txt {
+                    width: 88%;
+                    font-size: 20px;
+                    font-family: "Poppins";
+                    color: #b6b6b6;
+                }
+            }
+        }
+
+        [data-size="lg"] {
+            height: 120px;
+        }
+
+        [data-size="sm"]{
+            position: relative;
+            right: 30px;
+        }
+    }
+</style>
