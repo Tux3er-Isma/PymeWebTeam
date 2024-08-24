@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-const { source, numPh, title, order, imgNum, imgsArr, titleG } = Astro.props;
+const { source, numPh, title, order, imgNum, imgsArr, titleG, overlay } = Astro.props;
 import ImgLoader from "../../Loader/ImgLoader.astro";
 ---
 
@@ -19,7 +19,7 @@ import ImgLoader from "../../Loader/ImgLoader.astro";
             loading={"lazy"}
             quality={"mid"}
         />
-        <div class="picture__overlay"></div>
+        <div class="picture__overlay" data-overlay={overlay}></div>
         <div class="picture__text-container">
             <h4 class="picture__text-container__subtitle">{numPh} fotos</h4>
             <h3 class="picture__text-container__title">{title}</h3>
@@ -82,6 +82,10 @@ import ImgLoader from "../../Loader/ImgLoader.astro";
             transition: opacity 0.5s;
         }
 
+        [data-overlay="yes"]{
+            opacity: .8;
+        }
+
         &:hover .picture__overlay {
             cursor: pointer;
             opacity: 0.8;
@@ -110,6 +114,7 @@ import ImgLoader from "../../Loader/ImgLoader.astro";
 
                 &--g{
                     text-shadow: 1px 1px 1px 1px #8b8b8b;
+                    font-weight: lighter;
                 }
             }
         }

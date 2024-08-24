@@ -1,12 +1,13 @@
 ---
 import { Image } from "astro:assets";
-const { source, numPh, title, order, imgNum, link, titleG } = Astro.props;
+const { source, numPh, title, order, imgNum, link, titleG, overlay } =
+    Astro.props;
 import ImgLoader from "../../Loader/ImgLoader.astro";
 ---
 
 <div class="gallery-link">
-    <a class="picture" href={link} target="_blank" >
-        <ImgLoader></ImgLoader>
+    <a class="picture" href={link} target="_blank">
+        <ImgLoader />
         <Image
             src={source}
             alt="PymeWebTeam"
@@ -16,7 +17,7 @@ import ImgLoader from "../../Loader/ImgLoader.astro";
             loading={"lazy"}
             quality={"mid"}
         />
-        <div class="picture__overlay"></div>
+        <div class="picture__overlay" data-overlay={overlay}></div>
         <div class="picture__text-container">
             <h4 class="picture__text-container__subtitle">{numPh}</h4>
             <h3 class="picture__text-container__title--g">{titleG}</h3>
@@ -78,6 +79,10 @@ import ImgLoader from "../../Loader/ImgLoader.astro";
             transition: opacity 0.5s;
         }
 
+        [data-overlay="yes"] {
+            opacity: 0.8;
+        }
+
         &:hover .picture__overlay {
             cursor: pointer;
             opacity: 0.8;
@@ -104,8 +109,8 @@ import ImgLoader from "../../Loader/ImgLoader.astro";
                 font-weight: lighter;
                 font-size: 18px;
 
-                &--g{
-                    text-shadow: 10px 10px 1px 1px #000000;
+                &--g {
+                    font-weight: lighter;
                 }
             }
         }
