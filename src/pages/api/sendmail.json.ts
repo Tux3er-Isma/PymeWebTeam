@@ -7,9 +7,9 @@ export const POST: APIRoute = async ({ params, request }) => {
     if (request.headers.get('Content-Type') === 'application/json') {
         const body = await request.json();
         const { userName, email, msg } = body;
-        const host = "mail.privateemail.com";
-        const emailToPass = "Tarragona2009";
-        const emailTo = "isma@pymeweb.team";
+        const host = "smtp.gmail.com";
+        const emailToPass = "dqqx rowz wvow xyna";
+        const emailTo = "isma.tux3er@gmail.com";
         // const formData = await request.json()
         // const name = formData.name
         // const surname = formData.surname
@@ -64,6 +64,8 @@ export const POST: APIRoute = async ({ params, request }) => {
                 html: `<!DOCTYPE html>
                 <html>
                 <body>
+                    <strong>${userName}</strong>
+                    <strong>${email}</strong>
                     <strong>${msg}</strong>
                 </body>
                 </html>
