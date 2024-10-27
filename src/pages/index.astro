@@ -7,9 +7,11 @@ import Footer from "../components/Footer/Footer.astro";
 import IABtn from "../components/IA/IABtn.astro";
 ---
 
-<Layout title="PymeWebTeam | Impulsamos tu negocio, creando juntos tu presencia digital.">
+<Layout
+	title="PymeWebTeam | Impulsamos tu negocio, creando juntos tu presencia digital."
+>
 	<div class="preloader">
-		<Loader></Loader>
+		<Loader />
 	</div>
 	<div class="b">
 		<Header />
@@ -19,13 +21,13 @@ import IABtn from "../components/IA/IABtn.astro";
 </Layout>
 
 <style lang="scss">
-	.b{
+	.b {
 		position: absolute;
 		z-index: 1;
-		display: none
+		display: none;
 	}
 
-	.preloader{
+	.preloader {
 		width: 100vw;
 		height: 100vh;
 		display: flex;
@@ -35,13 +37,13 @@ import IABtn from "../components/IA/IABtn.astro";
 </style>
 
 <script is:inline>
-	const preloader = document.querySelector('.preloader');
-	const body = document.querySelector('.b');
+	const preloader = document.querySelector(".preloader");
+	const body = document.querySelector(".b");
 
-	window.addEventListener('load', () =>{
-		preloader.style.display = 'none';
-		body.style.display = 'block';
-	})
+	window.addEventListener("load", () => {
+		preloader.style.display = "none";
+		body.style.display = "block";
+	});
 </script>
 
 <script is:inline>

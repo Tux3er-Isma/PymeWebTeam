@@ -117,6 +117,7 @@ import SendBtn from "./SendBtn.astro";
         const sendBtn = document.getElementById('send-btn');
 
         sendBtn.addEventListener("click", async () => {
+            alert("Message sent succesfully")
             try {
                 const res = await fetch("/api/sendmail.json", {
                     method: "POST",
@@ -131,6 +132,9 @@ import SendBtn from "./SendBtn.astro";
                 });
                 const data = await res.json();
                 console.log(data);
+                nameAndSurname.value = " ";
+                email.value = " ";
+                msg.value = " "
             } catch (err) {
                 console.log(err);
             }
