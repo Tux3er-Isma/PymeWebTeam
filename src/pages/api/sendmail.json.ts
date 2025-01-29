@@ -6,7 +6,7 @@ export const POST: APIRoute = async ({ params, request }) => {
 
     if (request.headers.get('Content-Type') === 'application/json') {
         const body = await request.json();
-        const { userName, email, msg } = body;
+        const { userName, email, msg, ip } = body;
         const host = "smtp.gmail.com";
         const emailToPass = "dqqx rowz wvow xyna";
         const emailTo = "isma.tux3er@gmail.com";
@@ -64,22 +64,9 @@ export const POST: APIRoute = async ({ params, request }) => {
                 html: `<!DOCTYPE html>
                 <html>
                 <body>
-                    <strong>${userName}</strong>
-                    <strong>${email}</strong>
-                    <strong>${msg}</strong>
-                </body>
-                </html>
-                `
-            },
-            {
-                from: emailTo,
-                to: "isma.tux3er@gmail.com",
-                subject: "Mensaje desde pymewebteam",
-                text: msg,
-                html: `<!DOCTYPE html>
-                <html>
-                <body>
-                    <strong>${msg}</strong>
+                    <p>Te ha enviado un mensaje: <strong>${userName}</strong> con la ip: <strong>${ip}</strong></p>
+                    <p>Su email es: <strong>${email}</strong></p>
+                    <p>Este es su mensaje: <strong>${msg}</strong></p>
                 </body>
                 </html>
                 `
