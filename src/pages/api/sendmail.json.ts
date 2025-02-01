@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import nodemailer from 'nodemailer';
+export const prerender = false; // Desactiva prerendering y usa SSR
 
 export const POST: APIRoute = async ({ params, request }) => {
     // console.log('request', request)
